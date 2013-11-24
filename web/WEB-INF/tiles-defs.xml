@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+    
+    <!--  -->
+    <!-- Aqui empiezan las definiciones para las vistas -->
+    <definition name="base" path="/plantilla/basePlantilla.jsp"> <!-- base de todas las vistas -->
+        <put name="banner" value="/plantilla/banner.jsp"/>
+        <put name="body" value="/plantilla/body.jsp"/>
+        <put name="sidebarR" value="/plantilla/sidebarR.jsp"/>
+        <put name="sidebarL" value="/plantilla/sidebarL.jsp"/>
+        <put name="footer" value="/plantilla/footer.jsp"/>
+    </definition>
+
+    <!-- Bases para las vistas por tipo de usuario -->
+    <!-- PUBLICAS -->
+    <definition name="basePublic" extends="base"> <!-- base de todas las vistas publicas -->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbIndex.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoPublic.jsp"/>
+    </definition>
+               
+    <definition name="inicSesion" extends="basePublic"> <!-- pagina de inicio del sistema -->
+        <put name="body" value="/public/welcome.jsp"/>
+    </definition>
+
+    <definition name="reccontra" extends="basePublic"> <!-- pagina de recuperacion de contraseña -->
+        <put name="body" value="/public/recuperarContrasena.jsp"/>
+    </definition>
+                                    
+    <definition name="recConEnviada" extends="basePublic"> <!-- pagina de recuperacion de contraseña enviada -->
+        <put name="body" value="/public/recuperacionEnviada.jsp"/>
+    </definition>
+            
+    <definition name="recConFallo" extends="basePublic"> <!-- pagina de error al intentar recuperar contraseña -->
+        <put name="body" value="/public/recConFallo.jsp"/>
+    </definition>
+            
+    <definition name="contacto" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/contacto.jsp"/>
+    </definition>
+    
+    <definition name="informacion" extends="basePublic"> <!-- pagina de informacion -->
+        <put name="body" value="/public/infoImportante.jsp"/>
+    </definition>
+            
+    <definition name="salida" extends="basePublic"> <!-- pagina a la que se llega al salir del sistema, es la misma que inicSesion asi -->
+        <put name="body" value="/public/salidaDelSistema.jsp"/> <!--que deberiamos redirigir a Welcome.do y no a esta  pero la pongo por si acaso-->
+    </definition>
+            
+    <definition name="datosErrados" extends="basePublic"> <!-- pagina que aparece cuando se introduce un dato invalido al iniciar sesion -->
+        <put name="body" value="/public/datoserrados.jsp"/>
+    </definition>
+            
+    <definition name="errorI" extends="basePublic"> <!-- pagina de error al iniciar sesion -->
+        <put name="body" value="/public/error.jsp"/>
+    </definition>
+               
+    <definition name="welcomeCoord" extends="basePublic"> <!-- pagina de recibimiento para usuarios coordinacion -->
+        <put name="body" value="/bienvenidoCoordinacion.jsp"/>
+    </definition>
+            
+    <definition name="SistemaCerrado" extends="basePublic"> <!-- pagina de recibimiento para usuarios coordinacion -->
+        <put name="body" value="/public/SistemaCerrado.jsp"/>
+    </definition>
+    
+    <definition name="accExitoPublico" extends="basePublic"> <!-- pagina de exito de gestion de usuarios -->
+        <put name="body" value="/public/accionExitosa2.jsp"/>
+    </definition>
+            
+           
+    <!-- ADMINISTRADOR -->
+    <definition name="baseAdmin" extends="base"> <!-- base de todas las vistas de administrador -->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbLAdmin.jsp"/>
+        <put name="contacto" value="" />
+    </definition>
+        
+    <definition name="accFallo" extends="baseAdmin"> <!-- pagina de error al agregar usuario -->
+        <put name="body" value="/admin/accionFallo.jsp"/>
+    </definition>
+            
+    <definition name="accExito" extends="baseAdmin"> <!-- pagina de exito de gestion de usuarios -->
+        <put name="body" value="/admin/accionExitosa.jsp"/>
+    </definition>
+    
+    <definition name="accActua" extends="baseAdmin"> <!-- pagina de exito de modificacion de perfil -->
+        <put name="body" value="/admin/accActualizacion.jsp"/>
+    </definition>
+        
+    <definition name="accionesAdmin" extends="baseAdmin"> <!-- pagina de gestion de usuarios -->
+        <put name="body" value="/admin/acciones.jsp" />
+    </definition>
+            
+    <definition name="listarUsuarios" extends="baseAdmin"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/admin/listarUsuarios.jsp" />
+    </definition>
+            
+    <definition name="elimExito" extends="baseAdmin"> <!-- pagina de exito al eliminar usuario -->
+        <put name="body" value="/admin/eliminacionExitosa.jsp"/>
+    </definition>
+            
+    <definition name="mostrarUsuario" extends="baseAdmin"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/admin/mostrarUsuario.jsp" />
+    </definition>
+            
+    <definition name="cargarDatosMod" extends="baseAdmin"> <!-- pagina de modificar usuario donde carga los datos -->
+        <put name="body" value="/admin/cargarDatosModificar.jsp" />
+    </definition>
+            
+    <definition name="modificarUsuario" extends="baseAdmin"> <!-- pagina de modificar usuario -->
+        <put name="body" value="/admin/modificarUsuario.jsp" />
+    </definition>
+            
+    <definition name="agregUsuario" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarUsuario.jsp" />
+    </definition>
+                      
+    <definition name="agregarGestor" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarTipoGestor.jsp" />
+    </definition>
+            
+    <definition name="agregarCoord" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarTipoCoordinacion.jsp" />
+    </definition>
+            
+    <definition name="agregarUniExt" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarTipoUniExt.jsp" />
+    </definition>
+            
+    <definition name="agregarCoord" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarTipoCoordinacion.jsp" />
+    </definition>
+            
+    <definition name="agregarEstudianteUSB" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarTipoEstudianteUSB.jsp" />
+    </definition>
+            
+    <definition name="agregarEstudianteExt" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+        <put name="body" value="/admin/agregarTipoEstudianteExt.jsp" />
+    </definition>
+
+            
+    <definition name="elimUsuario" extends="baseAdmin"> <!-- pagina de eliminacion de usuario -->
+        <put name="body" value="/admin/eliminarUsuario.jsp" />
+    </definition>
+            
+    <definition name="modPerfilAdm" extends="baseAdmin"> <!-- pagina para modificar perfil del administrador -->
+        <put name="body" value="/admin/modificarperfil.jsp"/>
+    </definition>
+            
+    <definition name="cuentaAdmin" extends="baseAdmin"> <!-- pagina de cuenta del administrador -->
+        <put name="body" value="/admin/cuentaAdmn.jsp"/>
+    </definition>
+            
+    <definition name="vistanuncios" extends ="baseAdmin">
+        <put name="body" value="/admin/anuncios.jsp"/>
+    </definition>
+            
+    <definition name="Buscar" extends ="baseAdmin">
+        <put name="body" value="/admin/Buscar.jsp"/>
+    </definition>
+            
+    <definition name="redactarmensaje" extends ="baseAdmin">
+        <put name="body" value="/admin/redactarmensaje.jsp"/>
+    </definition>
+            
+    <definition name="verAnuncio" extends ="baseAdmin">
+        <put name="body" value="/admin/verAnuncio.jsp"/>
+    </definition>
+            
+    <definition name="listarDestinatarios" extends ="baseAdmin">
+        <put name="body" value="/admin/listarDestinatarios.jsp"/>
+    </definition>
+            
+    <definition name="estadoSistema" extends ="baseAdmin">
+        <put name="body" value="/admin/estadoSistema.jsp"/>
+    </definition>
+            
+    <definition name="LogAuditoria" extends ="baseAdmin">
+        <put name="body" value="/admin/LogAuditoria.jsp"/>
+    </definition>
+       
+        
+    <!-- ESTUDIANTE USB -->
+    <definition name="baseEstudiante" extends="base"> <!-- base de todas las vistas de estudiantes -->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstUSB.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteUSB.jsp"/>
+    </definition>
+        
+    <definition name="errortam" extends="baseEstudiante"> <!-- pagina arror de tamano archivo de estudiante usb -->
+        <put name="body" value="/estudianteUSB/errortam.jsp" />
+    </definition>
+        
+    <definition name="accionesEstUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/accionesEstUSB.jsp" />
+    </definition>
+            
+    <definition name="cargacorrecta" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/llenadoplanillacorrecto.jsp" />
+    </definition>
+            
+    <definition name="cargaarchivoscorrecta" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaarchivoscorrecto.jsp" />
+    </definition>
+            
+    <definition name="cargaplancorrecta" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaplancorrecto.jsp" />
+    </definition>
+            
+    <definition name="creacionplanillacorrecta" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/planillacreadaexitosamente.jsp" />
+    </definition>
+            
+    <definition name="cargaincorrecta" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/llenadoplanillaincorrecto.jsp" />
+    </definition>
+            
+    <definition name="cargaidioma" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaidiomascorrecto.jsp" />
+    </definition>
+            
+    <definition name="cuentaEstUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cuentaEstUSB.jsp" />
+    </definition>
+            
+    <definition name="formSolicUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/formularioSolicitudUSB.jsp" />
+    </definition>
+            
+    <definition name="modificarperUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/modificarperUSB.jsp" />
+    </definition>
+        
+    <definition name="formularioUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/formularioSolicitudUSB.jsp" />
+    </definition>
+            
+    <definition name="modificarPlanillaUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/modificarPlanilla.jsp" />
+    </definition>
+            
+    <definition name="contactoEstUSB" extends="baseEstudiante"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/estudianteUSB/contactoEstudiante.jsp"/>
+    </definition>
+            
+    <definition name="exitoContactoEstUSB" extends="baseEstudiante"> <!-- pagina de exito contacto de estudiante usb -->
+        <put name="body" value="/estudianteUSB/exitoContactoEstUSB.jsp"/>
+    </definition>
+            
+    <definition name="planillaIncompleta" extends="baseEstudiante"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/estudianteUSB/planillaIncompleta.jsp"/>
+    </definition>
+    
+    <definition name="accActuaUSB" extends="baseEstudiante"> <!-- pagina de exito de modificacion de perfil -->
+        <put name="body" value="/estudianteUSB/accActualizacion.jsp"/>
+    </definition>
+        
+    <definition name="listarDocumentos" extends="baseEstudiante"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/estudianteUSB/listarDocumentos.jsp" />
+    </definition>
+    
+    <definition name="cargaplanincorrecta" extends="baseEstudiante"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/estudianteUSB/cargaplanincorrecto.jsp" />
+    </definition>
+    
+    <definition name="cargaidiomaErr" extends="baseEstudiante"> 
+        <put name="body" value="/estudianteUSB/cargaidiomasincorrecto.jsp" />
+    </definition>
+        
+       
+    <!-- ESTUDIANTE EXT -->
+    <definition name="baseEstudianteExt" extends="base"> <!-- base de todas las vistas de estudiantes extranjeros-->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstExt.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteExt.jsp"/>
+    </definition>
+        
+    <definition name="errortamExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
+        <put name="body" value="/estudianteExt/errortam.jsp" />
+    </definition>
+    <definition name="cargaplanincorrectoExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
+        <put name="body" value="/estudianteExt/cargaplanincorrecto.jsp" />
+    </definition>
+        
+    <definition name="accionesEstExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/accionesEstExt.jsp" />
+    </definition>
+            
+    <definition name="cargacorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/llenadoplanillacorrectoExt.jsp" />
+    </definition>
+            
+    <definition name="cargaarchivoscorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/cargaarchivoscorrecto.jsp" />
+    </definition>
+            
+    <definition name="accActuaExt" extends="baseEstudianteExt"> <!-- pagina de exito de modificacion de perfil -->
+        <put name="body" value="/estudianteExt/accActualizacion.jsp"/>
+    </definition>
+            
+    <definition name="cargaplancorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/cargaplancorrecto.jsp" />
+    </definition>
+            
+    <definition name="creacionplanillacorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/planillacreadaexitosamente.jsp" />
+    </definition>
+            
+    <definition name="cargaincorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/llenadoplanillaincorrectoExt.jsp" />
+    </definition>
+            
+    <definition name="cargaidiomaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/cargaidiomascorrecto.jsp" />
+    </definition>
+            
+    <definition name="cuentaEstExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/cuentaEstExt.jsp" />
+    </definition>
+            
+    <definition name="formSolicExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/formularioSolicitudExt.jsp" />
+    </definition>
+            
+    <definition name="modificarperExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/modificarperExt.jsp" />
+    </definition>
+        
+    <definition name="formularioExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/formularioSolicitudExt.jsp" />
+    </definition>
+            
+    <definition name="modificarPlanillaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteExt/modificarPlanilla.jsp" />
+    </definition>
+            
+    <definition name="contactoEstExt" extends="baseEstudianteExt"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/estudianteExt/contactoEstudiante.jsp"/>
+    </definition>
+            
+    <definition name="exitoContactoEstExt" extends="baseEstudianteExt"> <!-- pagina de exito contacto de estudiante usb -->
+        <put name="body" value="/estudianteExt/exitoContactoEstExt.jsp"/>
+    </definition>
+            
+    <definition name="planillaIncompletaExt" extends="baseEstudianteExt"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/estudianteExt/planillaIncompleta.jsp"/>
+    </definition>
+        
+    <definition name="listarDocumentosExt" extends="baseEstudianteExt"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/estudianteExt/listarDocumentos.jsp" />
+    </definition>
+    <definition name="cargaidiomaExtErr" extends="baseEstudianteExt"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/estudianteExt/cargaidiomasincorrecto.jsp" />
+    </definition>
+        
+        
+    <!-- GESTOR -->
+        
+    <definition name="baseGestor" extends="base"> <!-- base de todas las vistas de gestores -->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbLGestor.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoGestor.jsp"/>
+    </definition>
+        
+    <definition name="accionesGestor" extends="baseGestor"> <!-- pagina de gestion de usuarios -->
+        <put name="body" value="/gestor/accionesGestor.jsp" />
+    </definition>
+
+    <definition name="modPerfilGes" extends="baseGestor"> <!-- pagina para modificar perfil del Gestor -->
+        <put name="body" value="/gestor/modificarperfil.jsp"/>
+    </definition>
+            
+    <definition name="listarEstudiantesPostulados" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/gestor/listarEstudiantesPostulados.jsp"/>
+    </definition>
+    
+    <definition name="accFalloGest" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/gestor/accionFallo.jsp"/>
+    </definition>
+            
+    <definition name="sinArchivos" extends="baseGestor">
+        <put name="body" value="/gestor/sinArchivos.jsp"/>
+    </definition>
+            
+    <definition name="contactoGestor" extends="baseGestor"> <!-- pagina de contacto de gestores -->
+        <put name="body" value="/gestor/contactoGestor.jsp"/>
+    </definition>
+            
+    <definition name="exitoContactoGestor" extends="baseGestor"> <!-- pagina de exito contacto de gestores -->
+        <put name="body" value="/gestor/exitoContactoGestor.jsp"/>
+    </definition>
+            
+    <definition name="busquedaAvanzada" extends="baseGestor">
+        <put name="body" value="/gestor/BusquedaAvanzada.jsp"/>
+    </definition>
+            
+    <definition name="mostrarUsuarioGestor" extends="baseGestor"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/gestor/mostrarUsuario.jsp" />
+    </definition>
+    
+    <definition name="accActuaGes" extends="baseGestor"> <!-- pagina de exito de modificacion de perfil -->
+        <put name="body" value="/gestor/accActualizacion.jsp"/>
+    </definition>
+
+    <!-- COORDINACION -->        
+    <definition name="baseCoordinaciones" extends="base"> <!-- base de todas las vistas de coordinaciones -->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbLCoord.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoPostulante.jsp"/>
+    </definition>
+
+    <definition name="accActuaPos" extends="baseCoordinaciones"> <!-- pagina de exito de modificar perfil -->
+        <put name="body" value="/postulante/accActualizacion.jsp"/>
+    </definition>        
+
+    <definition name="agregEstudiante" extends="baseCoordinaciones"> <!-- pagina de postular estudiante -->
+        <put name="body" value="/admin/agregarTipoEstudiante.jsp" />
+    </definition>
+            
+    <definition name = "agregComent" extends = "baseCoordinaciones">
+        <put name="body" value="/postulante/agregarComentario.jsp" />
+    </definition>
+            
+    <definition name="exitoAgregEst" extends="baseCoordinaciones"> <!-- pagina de exito postular estudiante -->
+        <put name="body" value="/postulante/exitoAgregEst.jsp" />
+    </definition>
+            
+    <definition name="falloAgregEst" extends="baseCoordinaciones"> <!-- pagina de fallo postular estudiante -->
+        <put name="body" value="/postulante/falloAgregEst.jsp" />
+    </definition>
+
+    <definition name="accionesPostulante" extends="baseCoordinaciones"> <!-- pagina de gestion de usuarios -->
+        <put name="body" value="/postulante/accionesPostulante.jsp" />
+    </definition>
+            
+    <definition name="listarEstudiantes" extends="baseCoordinaciones"> <!-- pagina de listar estudiantes -->
+        <put name="body" value="/postulante/listarEstudiantes.jsp" />
+    </definition>  
+            
+    <definition name="contactoCoord" extends="baseCoordinaciones"> <!-- pagina de contacto de coordinaciones -->
+        <put name="body" value="/postulante/contactoCoord.jsp"/>
+    </definition>
+            
+    <definition name="agregEstUsb" extends="baseCoordinaciones">
+        <put name="body" value="/postulante/agregarEstudianteUSB.jsp" />
+    </definition>
+            
+    <definition name="agregEstInt" extends="baseCoordinaciones">
+        <put name="body" value="/postulante/agregarEstudianteInter.jsp" />
+    </definition>
+            
+    <definition name="exitoContactoCoord" extends="baseCoordinaciones"> <!-- pagina de exito contacto de coordinaciones -->
+        <put name="body" value="/postulante/exitoContactoCoord.jsp"/>
+    </definition>
+            
+    <definition name="elimExitoCoord" extends="baseCoordinaciones"> <!-- pagina de exito al eliminar usuario -->
+        <put name="body" value="/postulante/elimExitoCoord.jsp"/>
+    </definition>
+            
+    <definition name="mostrarUsuarioPostulante" extends="baseCoordinaciones"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/postulante/mostrarUsuario.jsp" />
+    </definition>
+            
+    <definition name="modPerfilPos" extends="baseCoordinaciones"> <!-- pagina para modificar perfil del postulante -->
+        <put name="body" value="/postulante/modificarperfil.jsp"/>
+    </definition>
+        
+        
+    <!-- UNIVERSIDAD EXTRANJERA -->
+    <definition name="baseUniExtranjera" extends="base"> <!-- base de todas las vistas de universidades extranjeras -->
+        <put name="body" value=""/>
+    </definition>
+
+
+    <!-- Aqui terminan las definiciones para generar herencia -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition> 
+    
+    <definition name="footer" path="/Intercambio/plantilla/footer.jsp">
+    </definition>
+    
+</tiles-definitions>

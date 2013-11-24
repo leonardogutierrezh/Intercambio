@@ -1,0 +1,118 @@
+                <div id="opci5" style="display:none;width:650px;height:250px; border: 5px solid #F2D8FF; border-radius: 10px; border-width:5px;">
+                    <br>
+                    <table border="0"  align="center">
+                        <tbody>
+                        <tr>
+                            <td> Decanato:</td>
+                            <td><html:select name="PlanillaUSB" property="decanato">
+                                    <html:option value="Seleccione"></html:option>
+                                    <html:option value="Dec. Estudios Profesionales"></html:option>
+                                    <html:option value="Dec. Estudios Tecnológicos"></html:option>
+                                </html:select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> Área de Estudio:</td>
+                            <td><html:select name="PlanillaUSB" property="areaEstud">
+                                    <html:option value="Seleccione"></html:option>
+                                </html:select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> Carrera:</td>
+                            <td><html:select name="PlanillaUSB" property="carrera">
+                                    <html:option value="Seleccione"></html:option>
+                                    <html:option value="Administración del Turismo"></html:option>
+                                    <html:option value="Administración Hotelera"></html:option>
+                                    <html:option value="Administración del Transporte"></html:option>
+                                    <html:option value="Administración Aduanera"></html:option>                                        
+                                    <html:option value="Arquitectura"></html:option>
+                                    <html:option value="Ingenieria Electrica"></html:option>
+                                    <html:option value="Ingenieria Mecanica"></html:option>
+                                    <html:option value="Ingenieria Quimica"></html:option>
+                                    <html:option value="Ingenieria Electrica"></html:option>
+                                    <html:option value="Ingenieria Mecanica"></html:option>
+                                    <html:option value="Ingenieria Electronica"></html:option>
+                                    <html:option value="Ingenieria de Computacion"></html:option>
+                                    <html:option value="Ingenieria Geofisica"></html:option>
+                                    <html:option value="Ingenieria de Materiales"></html:option>
+                                    <html:option value="Ingenieria de Produccion"></html:option>
+                                    <html:option value="Ingenieria de Telecomunicaciones"></html:option>
+                                    <html:option value="Ingenieria de Mantenimeinto"></html:option>
+                                    <html:option value="Licenciatura en Gestion de la Hospitalidad"></html:option>
+                                    <html:option value="Licenciatura en Comercio Internacion"></html:option>
+                                    <html:option value="Licenciatura en Quimica"></html:option>
+                                    <html:option value="Licenciatura en Matematicas"></html:option>
+                                    <html:option value="Licenciatura en Fisica"></html:option>
+                                    <html:option value="Licenciatura en Biologia"></html:option>                                        
+                                    <html:option value="Mantenimiento Aeronautico"></html:option>
+                                    <html:option value="Organizacion Empresarial"></html:option>                                        
+                                    <html:option value="Tecnología  Electrica"></html:option>
+                                    <html:option value="Tecnología  Electronica"></html:option>
+                                    <html:option value="Tecnologia Mecanica"></html:option>
+                                    <html:option value="Urbanismo"></html:option>                                        
+                                </html:select>
+                            </td>
+                        </tr> 
+
+                        <tr>
+                            <td>Código de carrera: </td>
+
+
+                            <td>
+                                <html:text name="PlanillaUSB" property="codCarrera" maxlength="30" errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">
+                                </html:text>
+                            </td>
+
+                            <td>
+                                <html:errors property="codCarrera" />
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td> Número de Créditos Aprobados Hasta la Fecha</td>
+
+                            <td>
+                                <html:text name="PlanillaUSB" property="creditosApro" maxlength="60"  errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">
+                                </html:text>
+                            </td>
+
+                            <td>
+                                <html:errors property="creditosApro" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> Índice Académico: </td>
+
+                            <td>
+                                <html:text name="PlanillaUSB" property="indice" maxlength="60"  errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">
+                                </html:text>
+                            </td>
+
+                            <td>
+                                <html:errors property="indice" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> Índice Académico Ponderado: </td>
+
+                            <td>
+                                <html:text name="PlanillaUSB" property="indicePon" maxlength="60"  errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">
+                                </html:text>
+                            </td>
+
+                            <td>
+                                <html:errors property="indicePon" />
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
