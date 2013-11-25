@@ -588,6 +588,7 @@
       <action input="/" name="Usuario" path="/LogAuditoria" scope="session" type="Actions.LogAuditoria">
           <forward name="success" path="LogAuditoria" />
       </action>
+      <action input="/" name="Usuario" path="/AccionFormularioContacto" scope="session" type="Actions.AccionFormularioContacto"/>
 
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
