@@ -611,6 +611,26 @@ public class DBMS {
         return usrs;
     }
 
+        public ArrayList<Usuario> listarCoordinaciones() {
+
+        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario WHERE privilegio = 3");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setNombreusuario(rs.getString("nombreusuario"));
+                u.setEmail(rs.getString("email"));
+                usrs.add(u);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+    }
+    
     public ArrayList<Usuario> listarDestinatarios(String[] nombres) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
