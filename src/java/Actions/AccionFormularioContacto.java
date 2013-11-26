@@ -6,6 +6,9 @@
 
 package Actions;
 
+import Clases.Usuario;
+import DBMS.*;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -35,7 +38,8 @@ public class AccionFormularioContacto extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+        ArrayList<Usuario> users = DBMS.getInstance().listarUsuarios();
+        request.setAttribute("usuario", users);
         return mapping.findForward(SUCCESS);
     }
 }
