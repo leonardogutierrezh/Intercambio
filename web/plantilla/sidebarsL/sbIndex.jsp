@@ -36,7 +36,7 @@
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('estudianteInter');">Recaudos de Estudiantes Internacionales</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('estudianteNac');">Recaudos de Estudiantes Nacionales</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('recaudosAdic');">Recaudos Adicionales</html:link></a>
-         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="contacto">Contacto</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="AccionFormularioContacto">Contacto</html:link></a>
     </div>
     
     <div id="twitterInt" style="width: 100%"> 
