@@ -28,6 +28,7 @@ public class Correo extends org.apache.struts.action.ActionForm{
     private String asunto;
     private String mensaje;
     private Session session;
+    private String email;
     Message msg;
     
     private final String correoDRIC = "intercambio.dri@gmail.com";
@@ -110,6 +111,15 @@ public class Correo extends org.apache.struts.action.ActionForm{
     public String getFirma() {
         return firma;
     }
+    
+    /**
+     *
+     * @return
+     */
+    public String getEmail() {
+        return email;
+    }
+
 
     /*
      * Metodo utilizado para el envio de mensajes por el servicio de contacto
