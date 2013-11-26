@@ -38,7 +38,7 @@ public class AccionFormularioContacto extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        ArrayList<Usuario> users = DBMS.getInstance().listarUsuarios();
+        ArrayList<Usuario> users = DBMS.getInstance().listarCoordinaciones();
         request.setAttribute("usuario", users);
         return mapping.findForward(SUCCESS);
     }
