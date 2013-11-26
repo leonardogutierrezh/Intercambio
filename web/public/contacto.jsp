@@ -81,9 +81,27 @@
                                     <html:errors property="mensaje" />
                                 </td>
                             </tr>
+                            <tr>
+                                <% /*   <td style="color: black">Coordinación: </td>
+                                <td><html:select property="usuario">
+                                        <html:optionsCollection name="usuario" value="email" property="email" label="nombreusuario"  />
+                                    </html:select>
+                                </td>
+                            </tr>  */ %>
+                            <tr>
+                                <td style="color: black">Coordinación: </td>
+                                <td><select name="select">
+                                    <logic:iterate name="usuario" id="usuarios">
+                                        <option value="<bean:write name="usuarios" property="email" />"><bean:write name="usuarios" property="nombreusuario" /></option>                    
+                                    </logic:iterate>
+                                      </select>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
 
+
+                                
                     <div  style="position: relative; height: 120px; bottom: -10px;">
                         <div id="Imagencita" style="height: 75px;">
                             <img onloadstart="loadstart" src="/Intercambio/stickyImg"/>
