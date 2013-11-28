@@ -120,7 +120,9 @@ public class Correo extends org.apache.struts.action.ActionForm{
         return email;
     }
 
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
     /*
      * Metodo utilizado para el envio de mensajes por el servicio de contacto
      * de la pagina.
