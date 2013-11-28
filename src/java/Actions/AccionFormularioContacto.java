@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.util.LabelValueBean;
 
 /**
  *
@@ -39,7 +40,13 @@ public class AccionFormularioContacto extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         ArrayList<Usuario> users = DBMS.getInstance().listarCoordinaciones();
-        request.setAttribute("usuario", users);
+        ArrayList usuarios = new ArrayList();
+        for (Usuario u : users){
+            //System.out.println(u.getEmail());
+            usuarios.add(new LabelValueBean(u.getNombreusuario(), u.getEmail()));
+        }
+        System.out.println(users.size());
+        request.setAttribute("email", usuarios);
         return mapping.findForward(SUCCESS);
     }
 }
