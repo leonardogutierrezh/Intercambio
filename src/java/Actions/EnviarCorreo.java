@@ -47,8 +47,9 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        System.out.println("entreeeeeeee yayyyy");
         Correo c = (Correo) form;
-        Usuario u = (Usuario) form;
+       // Usuario u = (Usuario) form;
         HttpSession session = request.getSession(true);
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
@@ -57,8 +58,7 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
         String mailR = c.getCorreoRemitente();
         String asunto = c.getAsunto();
         String mnsj = c.getMensaje();
-        String email = u.getEmail();
-        
+        String email = c.getEmail();
         Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
         request.setCharacterEncoding("UTF-8");
         String answer = request.getParameter("answer");
@@ -112,7 +112,7 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
 
         } else{
         
-            String enviarA = "leonardogutierrezh@gmail.com"; // Aqui debe ir el correo de la DRIC.
+            String enviarA = email; // Aqui debe ir el correo de la DRIC.
             boolean envioCorreo = c.enviar(enviarA);
             
             // Hace la validacion de que se envia
