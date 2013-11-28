@@ -82,13 +82,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <% /*   <td style="color: black">Coordinación: </td>
-                                <td><html:select property="usuario">
-                                        <html:optionsCollection name="usuario" value="email" property="email" label="nombreusuario"  />
+                            <td style="color: black">Coordinación: </td>
+                            <td><html:select property="email">
+                                        <html:optionsCollection name="email" value="value" label="label"  />
                                     </html:select>
                                 </td>
-                            </tr>  */ %>
-                            <tr>
+                            </tr> 
+                            <%--  <tr>
                                 <td style="color: black">Coordinación: </td>
                                 <td><select name="select">
                                     <logic:iterate name="usuario" id="usuarios">
@@ -96,7 +96,7 @@
                                     </logic:iterate>
                                       </select>
                                 </td>
-                            </tr>
+                            </tr> --%>
                         </tbody>
                     </table>
 
