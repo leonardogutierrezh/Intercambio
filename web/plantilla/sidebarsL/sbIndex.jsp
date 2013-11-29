@@ -32,6 +32,7 @@
     
      <div class="glossymenu" style="width: 190px">
          <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="inicSesion">Login</html:link></a>
+         <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="crearCuentaEstud">Crear Cuenta</html:link></a>
          <a style="border-bottom: none;" ><html:link styleClass="menuitem" href="javascript:unhide('fechaPostulaciones');">Fecha Límite para Postulaciones</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('estudianteInter');">Recaudos de Estudiantes Internacionales</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('estudianteNac');">Recaudos de Estudiantes Nacionales</html:link></a>
