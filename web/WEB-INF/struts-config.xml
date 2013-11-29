@@ -255,6 +255,11 @@
             <forward name="error" path="contacto"/>
         </action>
         
+        <action path="/elegirTipoEstudiante" type="Actions.ElegirTipoEstudiante" name="Usuario">
+            <forward name="estudianteUSB" path="crearCuentaUSB"/>
+            <forward name="estudianteExt" path="crearCuentaExt"/>
+        </action>
+        
         
         <!-- Acciones en usuario general -->
         
@@ -371,11 +376,23 @@
             <forward name ="fail" path = "accFallo" />
             <forward name="error" path = "agregarEstudianteUSB" />          
        </action>
-       
+
+       <action input="/" name="EstUSB" path="/FormEstudianteUSBAgregar" scope="session" type="Actions.EstudianteUSBAgregar">
+            <forward name="success" path = "publicExito" />
+            <forward name ="fail" path = "publicFallo" /> 
+            <forward name ="error" path = "publicError" />     
+       </action>
+                            
        <action name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.AccionAgregarEstudianteInter">
             <forward name="success" path = "accExito" />
             <forward name ="fail" path = "accFallo" />
             <forward name="error" path = "agregarEstudianteExt" />          
+       </action>
+       
+       <action name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.EstudianteExtranjeroAgregar">
+            <forward name="success" path = "publicExito" />
+            <forward name ="fail" path = "publicFallo" /> 
+            <forward name ="error" path = "publicError" />           
        </action>
        
       <action input="/" name="Postulante" path="/AccionAgregarUniExt" scope="session" type="Actions.AccionAgregarUniExt">
@@ -482,6 +499,10 @@
        <action name="PlanillaUSB" path="/CargarLlenarPlanillaUSB" scope="session" type="Actions.CargarLlenarPlanillaUSB">
             <forward name="success" path="formularioUSB" />
             <forward name="modificar" path="formularioUSB" />
+       </action>
+       
+       <action name="Usuario" path="/EstadoPostulacionUSB" scope="session" type="Actions.EstadoPostulacionUSB">
+            <forward name="success" path="estadoPostulacionUSB" />
        </action>
        
        <action name="PlanillaUSB" path="/LlenarPlanilla_EstUSB" scope="session" type="Actions.LlenarPlanilla_EstUSB">
@@ -591,6 +612,12 @@
       <action input="/" name="Usuario" path="/AccionFormularioContacto" scope="session" type="Actions.AccionFormularioContacto">
            <forward name="success" path="contacto" />
       </action>
+      
+      <action input="/" name="Usuario" path="/crearCuentaEstud" scope="session" type="Actions.crearCuentaEstud">
+           <forward name="success" path="crearCuentaEstudiante" />
+      </action>
+
+      
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
