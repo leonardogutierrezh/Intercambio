@@ -48,6 +48,31 @@
         <put name="body" value="/public/contacto.jsp"/>
     </definition>
     
+    <definition name="publicExito" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/accionExitosa2.jsp"/>
+    </definition>
+   
+    <definition name="publicFallo" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/error.jsp"/>
+    </definition>
+    
+    <definition name="publicError" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/crearCuentaExt.jsp"/>
+    </definition>
+    
+    <definition name="crearCuentaUSB" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/crearCuentaUSB.jsp"/>
+    </definition>
+    
+    <definition name="crearCuentaExt" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/crearCuentaExt.jsp"/>
+    </definition>
+    
+    <definition name="crearCuentaEstudiante" extends="basePublic"> <!-- pagina de contacto -->
+        <put name="body" value="/public/crearCuentaEstud.jsp"/>
+    </definition>
+
+    
     <definition name="informacion" extends="basePublic"> <!-- pagina de informacion -->
         <put name="body" value="/public/infoImportante.jsp"/>
     </definition>
@@ -238,7 +263,12 @@
     <definition name="modificarperUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
         <put name="body" value="/estudianteUSB/modificarperUSB.jsp" />
     </definition>
-        
+    
+         
+    <definition name="estadoPostulacionUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/estadoSolicitudUSB.jsp" />
+    </definition>
+       
     <definition name="formularioUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
         <put name="body" value="/estudianteUSB/formularioSolicitudUSB.jsp" />
     </definition>
