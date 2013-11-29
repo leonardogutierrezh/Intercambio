@@ -45,6 +45,7 @@ ddmenu.init({
                 <li><a> <html:link action="/CargarLlenarPlanillaUSB" >Formulario de solicitud</html:link></a></li>
                 <li><a> <html:link action="/VerificarPlanillaUSB">Descargar planilla</html:link></a></li>
                 <li><a> <html:link action="/GenerarCarpeta">Descargar carpeta</html:link></a></li>
+                <li><a> <html:link action="/EstadoPostulacionUSB" >Ver estado de solicitud</html:link></a></li>
             </ul>
         </div>
         
