@@ -44,6 +44,12 @@ ddmenu.init({
                 <li><a> <html:link action="/ListarEstudiantes">Consultar estudiantes</html:link></a></li>
             </ul>
         </div>
+        <a class="menuitem submenuheader">Gestión de solicitudes </a>
+        <div class="submenu">
+            <ul>
+                <li><a> <html:link action="/AccionListarSolicitudes">Listar Solicitudes</html:link></a></li>
+            </ul>
+        </div>
         
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modPerfilPos">Ver/Modificar perfil</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/CerrarSesion">Cerrar sesión</html:link></a>
