@@ -471,6 +471,10 @@
     <definition name="listarEstudiantes" extends="baseCoordinaciones"> <!-- pagina de listar estudiantes -->
         <put name="body" value="/postulante/listarEstudiantes.jsp" />
     </definition>  
+    
+    <definition name="ListarSolicitudesCoordinacion" extends="baseCoordinaciones"> <!-- pagina de listar estudiantes -->
+        <put name="body" value="/postulante/ListarSolicitudesCoordinacion.jsp" />
+    </definition>  
             
     <definition name="contactoCoord" extends="baseCoordinaciones"> <!-- pagina de contacto de coordinaciones -->
         <put name="body" value="/postulante/contactoCoord.jsp"/>
