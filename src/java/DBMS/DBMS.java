@@ -741,6 +741,26 @@ public class DBMS {
         }
         return usrs;
     }
+    
+        public ArrayList<Usuario> listarPostuladosCoordinacion(Usuario u) {
+
+        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE "
+                    + "carreraEst = '" + u.getNombreusuario() + "';");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Usuario t = new Usuario();
+                t.setNombreusuario(rs.getString("nombreusuario"));
+                usrs.add(t);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+    }
 
     public Usuario obtenerDatos(Usuario u) {
 
