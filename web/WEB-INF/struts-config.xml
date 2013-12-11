@@ -616,7 +616,9 @@
       <action input="/" name="Usuario" path="/crearCuentaEstud" scope="session" type="Actions.crearCuentaEstud">
            <forward name="success" path="crearCuentaEstudiante" />
       </action>
-
+      <action input="/" name="Usuario" path="/AccionListarSolicitudes" scope="session" type="Actions.AccionListarSolicitudes">
+            <forward name="success" path="ListarSolicitudesCoordinacion" />
+      </action>
       
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
