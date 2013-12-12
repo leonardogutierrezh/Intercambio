@@ -135,7 +135,7 @@
     <definition name="mostrarUsuario" extends="baseAdmin"> <!-- pagina de listar usuarios -->
         <put name="body" value="/admin/mostrarUsuario.jsp" />
     </definition>
-            
+    
     <definition name="cargarDatosMod" extends="baseAdmin"> <!-- pagina de modificar usuario donde carga los datos -->
         <put name="body" value="/admin/cargarDatosModificar.jsp" />
     </definition>
@@ -447,7 +447,7 @@
     <definition name="accActuaPos" extends="baseCoordinaciones"> <!-- pagina de exito de modificar perfil -->
         <put name="body" value="/postulante/accActualizacion.jsp"/>
     </definition>        
-
+    
     <definition name="agregEstudiante" extends="baseCoordinaciones"> <!-- pagina de postular estudiante -->
         <put name="body" value="/admin/agregarTipoEstudiante.jsp" />
     </definition>
@@ -455,7 +455,11 @@
     <definition name = "agregComent" extends = "baseCoordinaciones">
         <put name="body" value="/postulante/agregarComentario.jsp" />
     </definition>
-            
+
+    <definition name="mostrarSolicitud" extends="baseCoordinaciones"> <!-- pagina mostrar solicitud -->
+        <put name="body" value="/postulante/mostrarSolicitud.jsp" />
+    </definition>
+    
     <definition name="exitoAgregEst" extends="baseCoordinaciones"> <!-- pagina de exito postular estudiante -->
         <put name="body" value="/postulante/exitoAgregEst.jsp" />
     </definition>
