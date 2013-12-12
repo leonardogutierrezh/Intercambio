@@ -554,7 +554,9 @@
          <forward name="modificar" path="modificarPlanillaExt" />
       </action>  
      
-       <action input="/" name="EstUSB" path="/ConsultarSolicitud" scope="session" type="Actions.ConsultarSolictud"/>
+      <action input="/" name="Usuario" path="/ConsultarSolicitud" scope="session" type="Actions.ConsultarSolicitud">
+         <forward name="success" path="mostrarSolicitud" />
+      </action>  
        
        <action input="/" name="EstUSB" path="/ConsultarEstado" scope="session" type="Actions.ConsultarEstado"/>
         
