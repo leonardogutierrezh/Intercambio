@@ -54,7 +54,7 @@
                         Nombre
                     </th>
                     <th width="90px" align="center">
-                        Ver estudiante
+                        Ver Solicitud
                     </th>
                     <th width="90px" align="center">
                         Eliminar Postulacion
@@ -71,7 +71,7 @@
                         <bean:write name="usuarios" property="nombreusuario" />
                     </td>
                     <td align="center" width="90px">
-                        <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
+                        <html:form action="/ConsultarSolicitud" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:hidden name = "usuarios" property="confirmar" value="postulante"/>
                             <html:image src="images/verDatos.png" value="" property="" style=""/> 
