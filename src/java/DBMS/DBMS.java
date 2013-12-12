@@ -762,6 +762,39 @@ public class DBMS {
         return usrs;
     }
 
+        public Estudiante obtenerEstudiante(Usuario u) {
+
+        Estudiante usrs = new Estudiante();
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante WHERE "
+                    + "nombreusuario = '" + u.getNombreusuario() + "';");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+            usrs.setOrigen(rs.getString("origen"));
+            usrs.setpNombre(rs.getString("primernombre"));
+            usrs.setpApellido(rs.getString("primerapellido"));
+            usrs.setSexo(rs.getString("sexo"));
+            usrs.setUrb(rs.getString("urbanizacion"));
+            usrs.setCalle(rs.getString("calle"));
+            usrs.setApartamento(rs.getString("apartamento"));
+            usrs.setEdificio(rs.getString("edificio"));
+            usrs.setApartamento(rs.getString("apartamento"));
+            usrs.setCiudad(rs.getString("ciudad"));
+            usrs.setEstado("estado");
+            usrs.setTelefonoCelular(rs.getString("telefonocel"));
+            usrs.setTelefonoCasa(rs.getString("telefonocasa"));
+            usrs.setEmail(rs.getString("email"));
+            usrs.setFechaNacimiento(rs.getString("fechanac"));
+            usrs.setNacionalidad(rs.getString("nacionalidad"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+    }
+        
+        
     public Usuario obtenerDatos(Usuario u) {
 
         Usuario datos = new Usuario();
