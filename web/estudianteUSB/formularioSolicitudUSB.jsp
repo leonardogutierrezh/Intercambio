@@ -1310,7 +1310,7 @@
                                 <td> Idioma que maneja:</td>
                                 <td>Nivel Verbal</td>
                                 <td>Nivel Escrito</td>
-                                <td>Nivel Oral</td>
+                                
                                 <td>Nivel Auditivo</td>
                             </tr>
                             <logic:iterate name="lang" id="langid">

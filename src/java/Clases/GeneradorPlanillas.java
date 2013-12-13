@@ -962,25 +962,7 @@ public class GeneradorPlanillas {
             ct.setSimpleColumn(campo, 90, 500, 500, 510, 10, Element.ALIGN_CENTER);
             ct.go();
             
-            /* ##########################
-             * #      Campos DRIC       #
-             * ##########################*/
 
-            //Cuadro del area
-            canvas.saveState();
-            canvas.roundRectangle(60, 230, 470, 130,7);
-            canvas.stroke();
-            canvas.restoreState();
-
-            //Titulo del area.
-            titulo = new Phrase("**Esta sección debe ser llenada exclusivamente por la DRIC**", fontTitulos);
-            ct.setSimpleColumn(titulo, 60, 370, 530, 380, 10, Element.ALIGN_CENTER);
-            ct.go();
-			
-            //opinion
-            campo = new Phrase("Opinión de la DRIC sobre esta solicitud (explicación breve):  ", fontCampo2);
-            ct.setSimpleColumn(campo, 90, 340, 500, 350, 10, Element.ALIGN_CENTER);
-            ct.go();
 
 
             document.close();
