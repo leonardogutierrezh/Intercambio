@@ -23,9 +23,6 @@
 
 
     <h4 align ="center">Estudiante USB</h4>
-    <div align="center">
-        <html:image src="images/error.png" /> 
-    </div>
     <br />
 
     <font color="red">

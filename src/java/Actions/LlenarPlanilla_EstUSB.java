@@ -9,6 +9,7 @@ import Clases.PlanDeEstudio;
 import Clases.PlanillaUSB;
 import Clases.SuperArray;
 import Clases.Usuario;
+import Clases.EstudianteUSB;
 
 import DBMS.DBMS;
 import java.util.ArrayList;
@@ -79,7 +80,17 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         String Meses[] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo",
             "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
             "Noviembre", "Diciembre"};
-
+        
+        
+        // PONER NOMBRE>> APELLIDO... cosas que no deberian ir en el formulario.
+        String nombreUsuario = p.getNombreUsuario();
+        System.out.println(nombreUsuario);
+        
+        EstudianteUSB es = DBMS.getInstance().obtenerDatosEstUsb(nombreUsuario); 
+        p.setApellido1(es.getpApellido());
+        p.setNombre1(es.getpNombre());        
+        p.setCarnet(es.getCarnet());
+        
         // ####################################
         //        Validacion de datos.
         // ####################################
