@@ -2547,6 +2547,22 @@ public class DBMS {
         }
         return true;
     }
+    
+    public boolean Recomendar(Usuario u) {
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".postulacion SET "
+                    + "comentrecomend= ? , recomendacion = ? WHERE nombreusuario = ?");
+            ps.setString(1, u.getConfirmar());
+            ps.setString(2, u.getConfirmar2());
+            ps.setString(2, u.getNombreusuario());
+            Integer i = ps.executeUpdate();
+            return i > 0;
+
+        } catch (SQLException ex) {
+        }
+        return true;
+    }
 
     public boolean registrar(String usuario, String accion) {
 
