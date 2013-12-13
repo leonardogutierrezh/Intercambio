@@ -20,6 +20,15 @@ public class AntecedentesAcademicos extends org.apache.struts.validator.Validato
     private String cursos;
     private String premios;
     private String distinciones;
+    private String credAprob;
+    
+    public String getcredAprob() {
+        return credAprob;
+    }
+
+    public void setcredAprob(String credAprob) {
+        this.credAprob = credAprob;
+    }
 
     public String getNombreUsuario() {
         return nombreUsuario;
