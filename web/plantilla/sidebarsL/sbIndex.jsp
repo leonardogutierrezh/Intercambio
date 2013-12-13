@@ -11,6 +11,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+<script type="text/javascript" src="/Intercambio/css/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/Intercambio/plantilla/sidebarsL/ddmenu.js"></script>
+<script type="text/javascript">
+
+
+ddmenu.init({
+	headerclass: "submenuheader", 
+	contentclass: "submenu", 
+	collapseprev: true,
+	defaultexpanded: [], 
+	animatedefault: false, 
+	persiststate: true, 
+	toggleclass: ["", ""], 
+	togglehtml: ["suffix", "", ""],
+	animatespeed: "normal" 
+})
+
+
+</script>
 <script type="text/javascript">
      function unhide(divID) {
        var item = document.getElementById(divID);
@@ -29,10 +48,17 @@
  </script>
 
 <html:html>
-    
+
+
+            
      <div class="glossymenu" style="width: 190px">
-         <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="inicSesion">Login</html:link></a>
-         <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="crearCuentaEstud">Registrarse</html:link></a>
+         <a class="menuitem submenuheader">Inicio Sesion</a>  
+         <div class="submenu">
+             <ul> 
+                <li><a><html:link styleClass="menuitem" action="inicSesion">Login</html:link></a></li>
+                <li><a><html:link styleClass="menuitem" action="crearCuentaEstud">Registrarse</html:link></a></li>
+            </ul>
+        </div>
          <a style="border-bottom: none;" ><html:link styleClass="menuitem" href="javascript:unhide('fechaPostulaciones');">Fecha Límite para Postulaciones</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('estudianteInter');">Recaudos de Estudiantes Internacionales</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('estudianteNac');">Recaudos de Estudiantes Nacionales</html:link></a>
