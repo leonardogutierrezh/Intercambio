@@ -222,7 +222,8 @@
     
     <definition name="Base_form_estudiante" extends="base"> <!-- base de todas las vistas de estudiantes -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstUSB_form.jsp"/>
-        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteUSB.jsp"/>
+        <put name="sidebarR" value="/plantilla/sidebarsR/sidebarRUSB_form.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteUSB_form.jsp"/>
     </definition>
         
     <definition name="errortam" extends="baseEstudiante"> <!-- pagina arror de tamano archivo de estudiante usb -->

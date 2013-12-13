@@ -1,9 +1,8 @@
 <%-- 
-    Document   : contactoEstudianteUSB
-    Created on : May 15, 2013, 9:59:44 PM
-    Author     : dreabalbas
+    Document   : sidebarR
+    Created on : Nov 14, 2012, 9:28:49 PM
+    Modified by: dreabalbas
 --%>
-
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -12,14 +11,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
-    <body>
-<!--
-        <div id="contacto">
-            <html:link action="/contactoEstUSB">
-                <img src="/Intercambio/images/Contactenos.jpg">
-            </html:link>
-        </div>
--->      
-  </body>
+    
+       
 </html>
