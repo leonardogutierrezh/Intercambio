@@ -36,8 +36,12 @@ public class AgregarComentario extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Usuario u = (Usuario) form;
-        
-        if(!DBMS.getInstance().Comentar(u)){
+        System.out.println(u.getConfirmar2());
+        if(!DBMS.getInstance().Recomendar(u)){
+            return mapping.findForward(FAIL);
+        }
+        u.setConfirmar("En evaluacion por DRIC");
+        if(!DBMS.getInstance().Recomendar(u)){
             return mapping.findForward(FAIL);
         }
         
