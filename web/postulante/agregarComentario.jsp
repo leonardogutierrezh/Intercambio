@@ -16,13 +16,20 @@
         <title>Comentar</title>
     </head>
     <div align="center">
-        <h1>Agregar Comentario para estudiante:</h1>
+        <h1>Agregar Recomendacion:</h1>
 
         <html:form action="/AgregarComentario"  acceptCharset="ISO-8859-1" onsubmit="return(this)">
             <html:hidden name="usuario" property="nombreusuario"/>
-            <html:textarea style="width:70%;height:40%;" name="usuario" property="confirmar"/>
-            <br>
-            <html:submit value="AgregarComentario"> Comentar </html:submit>
+            <p>Comentaios:</p>
+            <html:textarea style="width:70%;height:40%;" name="usuario" property="confirmar"/><br>
+            <p>Recomendacion:</p>
+            <html:select name="usuario" property="confirmar2">
+                <html:option value="Muy favorable">Muy favorable</html:option>
+                <html:option value="Favorable">Favorable</html:option>
+                <html:option value="Con reservas">Con reservas</html:option>
+            </html:select>
+                <br><br>
+            <html:submit value="Recomendar"> Recomendar </html:submit>
         </html:form>
     </div>
 
