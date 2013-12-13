@@ -793,7 +793,74 @@ public class DBMS {
         }
         return usrs;
     }
+     
+      public AntecedentesAcademicos obtenerAntecedente(Usuario u) {
+
+        AntecedentesAcademicos usrs = new AntecedentesAcademicos();
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".antecedenteacademico WHERE "
+                    + "nombreusuario = '" + u.getNombreusuario() + "';");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+            usrs.setIndice(rs.getDouble("indice"));
+            usrs.setCarrera(rs.getString("carrera"));
+            usrs.setDecanato(rs.getString("decanato"));
+            usrs.setcredAprob(rs.getString("credaprob"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+    }
         
+        public Representante obtenerRepresentante(Usuario u) {
+
+        Representante usrs = new Representante();
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".representante WHERE "
+                    + "nombreusuario = '" + u.getNombreusuario() + "';");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+              System.out.println("pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+              System.out.println(rs.getString("nombres"));
+              usrs.setNombres(rs.getString("nombres"));
+              usrs.setApellidos(rs.getString("apellidos"));
+              usrs.setTelefonocel(rs.getString("telefonocel"));
+              usrs.setTelefonohab(rs.getString("telefonohab"));
+              usrs.setEmailrep(rs.getString("emailrep"));
+              usrs.setTiporelacion(rs.getString("tiporelacion"));
+              usrs.setDireccion(rs.getString("direccion"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(usrs.getApellidos());
+        return usrs;
+    }
+        
+    public ArrayList<Idioma> obtenerIdioma(Usuario u) {
+        ArrayList<Idioma> usrs = new ArrayList<Idioma>(0);
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".idiomas WHERE "
+                    + "nombreusuario = '" + u.getNombreusuario() + "';");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+              Idioma i = new Idioma();
+              i.setNombreidioma(rs.getString("nombreidioma"));
+              i.setNivelverbal(rs.getString("nivelverbal"));
+              i.setNivelescrito(rs.getString("nivelescrito"));
+              usrs.add(i);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+    }
         
     public Usuario obtenerDatos(Usuario u) {
 
@@ -1278,6 +1345,37 @@ public class DBMS {
 
     }
 
+        public ArrayList<PlanMaterias> obtenerPlanMaterias(Usuario u) {
+
+        ArrayList<PlanMaterias> plan;
+        plan = new ArrayList<PlanMaterias>();
+
+        try {
+            String sqlquery = "SELECT * FROM \"dycicle\".planestudio "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+
+            while (rs.next()) {
+                PlanMaterias materia = new PlanMaterias();
+                materia.setmateriausb(rs.getString("materiausb"));
+                materia.setcreditousb(rs.getString("creditousb"));
+                materia.setcodigousb(rs.getString("codigousb"));
+                materia.setmateriauniv(rs.getString("materiauniv"));
+                materia.setcreditouniv(rs.getString("creditouniv"));
+                materia.setcodigouniv(rs.getString("codigouniv"));
+                plan.add(materia);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return plan;
+
+    }
+    
     public PlanDeEstudio obtenerPlanDeEstudio(Usuario u) {
         PlanDeEstudio datos = new PlanDeEstudio();
 
@@ -2037,6 +2135,30 @@ public class DBMS {
 
     }
 
+    public UniversidadPrograma obtenerUniversidad(Usuario u, String prioridad) {
+
+        UniversidadPrograma datos = new UniversidadPrograma();
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".universidades"
+                    + " WHERE nombreusuario = '" + u.getNombreusuario() + "' AND prioridad = '" + prioridad + "';");
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                datos.setnombreuni(rs.getString("nombreuni"));
+                datos.setnombreprograma(rs.getString("nombreprograma"));
+                datos.setmesfechaini(rs.getString("mesfechaini"));
+                datos.setaniofechaini(rs.getString("aniofechaini"));
+                datos.setmesfechafin(rs.getString("mesfechafin"));
+                datos.setaniofechafin(rs.getString("aniofechafin"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return datos;
+    }
+    
     /* Esta funcion es para insertar el plan de estudio de los estudiantes extranjeros*/
     public boolean InsertarPlan(PlanExtranjero plan) {
 
