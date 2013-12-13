@@ -962,9 +962,23 @@ public class GeneradorPlanillas {
             ct.setSimpleColumn(campo, 90, 500, 500, 510, 10, Element.ALIGN_CENTER);
             ct.go();
             
+            campo = new Phrase("Muy favorable:  ", fontCampo2);
+            ct.setSimpleColumn(campo, 70, 440, 440, 510, 10, Element.ALIGN_LEFT);
+            ct.go();
 
+            campo = new Phrase("Favorable:  ", fontCampo2);
+            ct.setSimpleColumn(campo, 70, 420, 420, 490, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            campo = new Phrase("Con Reservas:  ", fontCampo2);
+            ct.setSimpleColumn(campo, 70, 400, 400, 470, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            campo = new Phrase("Indice Normalizado:  ", fontCampo2);
+            ct.setSimpleColumn(campo, 70, 380, 380, 450, 10, Element.ALIGN_LEFT);
+            ct.go();
 
-
+            
             document.close();
 
         } catch (Exception ex) {
