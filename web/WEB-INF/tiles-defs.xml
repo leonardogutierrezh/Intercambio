@@ -219,6 +219,11 @@
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstUSB.jsp"/>
         <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteUSB.jsp"/>
     </definition>
+    
+    <definition name="Base_form_estudiante" extends="base"> <!-- base de todas las vistas de estudiantes -->
+        <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstUSB_form.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteUSB.jsp"/>
+    </definition>
         
     <definition name="errortam" extends="baseEstudiante"> <!-- pagina arror de tamano archivo de estudiante usb -->
         <put name="body" value="/estudianteUSB/errortam.jsp" />
@@ -269,7 +274,7 @@
         <put name="body" value="/estudianteUSB/estadoSolicitudUSB.jsp" />
     </definition>
        
-    <definition name="formularioUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
+    <definition name="formularioUSB" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
         <put name="body" value="/estudianteUSB/formularioSolicitudUSB.jsp" />
     </definition>
             
