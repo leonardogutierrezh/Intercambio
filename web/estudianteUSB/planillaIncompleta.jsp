@@ -19,15 +19,12 @@
     <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
     <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>
 
-
-
-    <h4 align ="center">Estudiante USB</h4>
-    <div align="center">
-        <html:image src="images/error.png" /> 
-    </div>
-    <br />
-
+    <br>
     <font color="red">
+    <h3 align ="center">
+        Atencion:
+    </h3>
+    </font>
     <h3 align ="center">
         Su planilla de solicitud todavia no tiene toda la información necesaria,
         <br>
@@ -35,7 +32,7 @@
         <br>
         Por favor, haga click en "Completar Planilla"
     </h3>
-    </font>
+    
 
     <html:form  action="/CargarLlenarPlanillaUSB" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"

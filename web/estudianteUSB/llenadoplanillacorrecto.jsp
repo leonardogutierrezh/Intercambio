@@ -17,9 +17,8 @@
     </head>
     <body>
         <div style="text-align: center;">
-        <h1>Datos de la planilla correctos y guardados</h1>
+        <h1>Sus datos han sido guardados exitosamente</h1>
         
-        <html:image src="images/correct.png" /> 
         <br />
         
         <html:link action="/CargarLlenarPlanillaUSB">
