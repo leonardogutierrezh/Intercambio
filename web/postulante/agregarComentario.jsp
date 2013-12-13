@@ -29,7 +29,7 @@
                 <html:option value="Con reservas">Con reservas</html:option>
             </html:select>
                 <br><br>
-            <html:submit value="AgregarComentario"> Comentar </html:submit>
+            <html:submit value="Recomendar"> Recomendar </html:submit>
         </html:form>
     </div>
 
