@@ -2555,7 +2555,7 @@ public class DBMS {
                     + "comentrecomend= ? , recomendacion = ? WHERE nombreusuario = ?");
             ps.setString(1, u.getConfirmar());
             ps.setString(2, u.getConfirmar2());
-            ps.setString(2, u.getNombreusuario());
+            ps.setString(3, u.getNombreusuario());
             Integer i = ps.executeUpdate();
             return i > 0;
 
