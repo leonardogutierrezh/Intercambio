@@ -41,7 +41,7 @@ public class AgregarComentario extends org.apache.struts.action.Action {
             return mapping.findForward(FAIL);
         }
         u.setConfirmar("En evaluacion por DRIC");
-        if(!DBMS.getInstance().Recomendar(u)){
+        if(!DBMS.getInstance().cambiarEstadoSolicitud(u)){
             return mapping.findForward(FAIL);
         }
         
