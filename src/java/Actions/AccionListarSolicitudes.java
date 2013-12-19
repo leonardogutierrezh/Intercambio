@@ -48,7 +48,7 @@ public class AccionListarSolicitudes extends org.apache.struts.action.Action {
         }
         String[] info = DBMS.getInstance().getInfoPostulante(u.getNombreusuario());
         u2.setNombreusuario(info[3]);
-        ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantes(u2);
+        ArrayList<Usuario> users = DBMS.getInstance().listarPostuladosCoordinacion(u2);
         System.out.println(users);
         request.setAttribute("usuario", users);
         return mapping.findForward(SUCCESS);
