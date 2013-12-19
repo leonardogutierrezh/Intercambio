@@ -59,9 +59,9 @@
                     <th width="90px" align="center">
                         Eliminar estudiante
                     </th>
-                    <th width="100px" align="center">
+                    <%--       <th width="100px" align="center">
                         Comentario/ Recomendación
-                    </th>
+</th>--%>
                 </tr>
             </thead>
             <logic:iterate name="usuario" id="usuarios">
@@ -85,14 +85,14 @@
                             </a>
                         </html:form>
                     </td>
-                    <td align="center" width="90px">
+                    <%--     <td align="center" width="90px">
                         <html:form action="/Comentar" onsubmit="return(this)">
                             <html:hidden name="usuarios" property="nombreusuario"/>
                             <a>
                                 <html:image src="images/comentar.png" value="" property="" /> 
                             </a>
                         </html:form>
-                    </td>
+                    </td> --%>
                 </tr>
 
             </logic:iterate>           
