@@ -42,14 +42,14 @@ public class ListarEstudiantes extends org.apache.struts.action.Action {
         HttpSession session = request.getSession();
         
         Usuario u = (Usuario) form;
-       // Usuario u2 = new Usuario();
-       // if (u.getNombreusuario() == null) {
-       //     u.setNombreusuario(session.getAttribute("nombreusuario").toString());
-       // }
-       // String[] info = DBMS.getInstance().getInfoPostulante(u.getNombreusuario());
-       // u2.setNombreusuario(info[3]);
-       // ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantes(u2);
-       // request.setAttribute("usuario", users);
+        Usuario u2 = new Usuario();
+        if (u.getNombreusuario() == null) {
+            u.setNombreusuario(session.getAttribute("nombreusuario").toString());
+        }
+        String[] info = DBMS.getInstance().getInfoPostulante(u.getNombreusuario());
+        u2.setNombreusuario(info[3]);
+        ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantes(u2);
+        request.setAttribute("usuario", users);
         return mapping.findForward(SUCCESS);
     }
 }
