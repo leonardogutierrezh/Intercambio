@@ -41,7 +41,7 @@ ddmenu.init({
         <div class="submenu">
             <ul>
                 <li><a> <html:link action="/AgregarEstudiantes">Agregar estudiante</html:link></a></li>
-            <%-- <li><a> <html:link action="/ListarEstudiantes">Consultar estudiantes</html:link></a></li> --%>
+                <li><a> <html:link action="/ListarEstudiantes">Consultar estudiantes</html:link></a></li> 
             </ul>
         </div>
         <a class="menuitem submenuheader">Gestión de solicitudes </a>
