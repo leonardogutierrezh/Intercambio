@@ -395,7 +395,7 @@ public class DBMS {
             ps4.setString(2, e.getCarrera());
 
             ps5 = conexion.prepareStatement("INSERT INTO \"dycicle\".Postulacion VALUES ("
-                    + "?, 'En evaluacion', 'recomendacion', 'comentario');");
+                    + "?, 'Sin postular', 'recomendacion', 'comentario');");
             ps5.setString(1, e.getNombreusuario());
 
 
@@ -747,7 +747,7 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
 
         try {
-            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE "
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE estadopostulacion = 'En evaluacion' and "
                     + "carreraEst = '" + u.getNombreusuario() + "';");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
