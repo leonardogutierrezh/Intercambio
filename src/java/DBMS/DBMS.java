@@ -610,17 +610,23 @@ public class DBMS {
         return usrs;
     }
 
-        public ArrayList<Usuario> listarCoordinaciones() {
+    public ArrayList<Usuario> listarCoordinaciones() {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
         PreparedStatement ps = null;
         try {
-            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario WHERE privilegio = 3");
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".postulante");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario u = new Usuario();
-                u.setNombreusuario(rs.getString("nombreusuario"));
-                u.setEmail(rs.getString("email"));
+                u.setNombreusuario(rs.getString("nombrecarrera"));
+                PreparedStatement no = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario WHERE nombreusuario = '" + rs.getString("nombreusuario") + "'");
+                ResultSet res_no = no.executeQuery();
+                while (res_no.next()){
+                    System.out.println(res_no.getString("email"));
+                    u.setEmail(res_no.getString("email"));
+                }  
+                
                 usrs.add(u);
             }
 
@@ -628,8 +634,8 @@ public class DBMS {
             ex.printStackTrace();
         }
         return usrs;
-    }
-    
+    }    
+
     public ArrayList<Usuario> listarDestinatarios(String[] nombres) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
