@@ -621,7 +621,10 @@
       <action input="/" name="Usuario" path="/AccionListarSolicitudes" scope="session" type="Actions.AccionListarSolicitudes">
             <forward name="success" path="ListarSolicitudesCoordinacion" />
       </action>
-      
+      <action name="Usuario" path="/eliminarsolicitudcoordinacion" scope="session" type="Actions.eliminarsolicitudcoordinacion">
+            <forward name="success" path="ListarSolicitudesCoordinacion" />
+            <forward name="failure" path="accFallo"/>
+      </action>
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
