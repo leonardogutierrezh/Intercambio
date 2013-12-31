@@ -34,6 +34,20 @@
                         </td>
                     </tr>
                     
+                    <tr>
+
+                        <td style="color: black">Contrasena</td>
+                        <td>
+                            <html:password name="EstUSB" property="contrasena" value="" maxlength="20" errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR"></html:password>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="color:firebrick">
+                            <html:errors property="contrasena" />
+                        </td>
+                    </tr>
                     
                     <tr>
                         <td style="color: black">Email</td>

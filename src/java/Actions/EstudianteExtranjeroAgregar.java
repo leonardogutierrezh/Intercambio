@@ -65,7 +65,7 @@ public class EstudianteExtranjeroAgregar extends org.apache.struts.action.Action
         EstudianteInternacional e = (EstudianteInternacional) form;
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
-        String pswd = e.generarContrasena();
+        String pswd = e.getContrasena();
         String confPswd = pswd;
         String mail = e.getEmail();
 
