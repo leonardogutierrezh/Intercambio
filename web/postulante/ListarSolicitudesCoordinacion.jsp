@@ -78,9 +78,9 @@
                         </html:form>
                     </td>
                     <td align="center" width="90px">
-                        <html:form action="/EliminarUsuarioCoord" onsubmit="return(this)">
+                        <html:form action="/eliminarsolicitudcoordinacion" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
-                            <a onclick="javascript: return confirm('Seguro Que Deses Elmininar Este Usuario?')">
+                            <a onclick="javascript: return confirm('Seguro que desea eliminar esta postulacion?')">
                                 <html:image src="images/trashcan-delete.png" value="" property="" /> 
                             </a>
                         </html:form>
