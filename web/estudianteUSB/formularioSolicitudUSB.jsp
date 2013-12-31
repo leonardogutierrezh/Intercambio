@@ -103,7 +103,7 @@
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="apellido1" maxlength="80" errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                                   errorKey="org.apache.struts.action.ERROR" disabled="True" ></html:text>
                                     </td>
                                 </tr>
                                 <tr>
@@ -132,7 +132,7 @@
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="nombre1" maxlength="80" errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                                   errorKey="org.apache.struts.action.ERROR" disabled="True"></html:text>
                                     </td>
 
                                 </tr>
@@ -228,7 +228,7 @@
                                     <td style="font-weight: bold">Nro Carnet Estudiantil</td>
                                     <td>
                                         <html:text name="PlanillaUSB" property="carnet" maxlength="10" errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
+                                                   errorKey="org.apache.struts.action.ERROR" disabled="True">
                                         </html:text>
                                     </td>
                                 </tr>

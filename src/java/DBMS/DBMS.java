@@ -95,7 +95,6 @@ public class DBMS {
      * 
      */
     public Usuario consultarUsuario(Usuario u) {
-
         PreparedStatement psConsultar = null;
         try {
 
@@ -2622,5 +2621,51 @@ public class DBMS {
 
     }
     
+    public EstudianteUSB obtenerDatosEstUsb(String u) {
+        PreparedStatement psConsultar = null;
+        EstudianteUSB estu = new EstudianteUSB();
+        try {
+            Statement stmt  = conexion.createStatement();
+            
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante"
+                    + " WHERE nombreusuario = '" + u + "';" ;
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            Boolean b = rs.next();
+            
+            if (b){
+                System.out.println("Si estaa");
+                estu.setpNombre(rs.getString("primernombre"));
+                estu.setsNombre("");
+                estu.setpApellido(rs.getString("primerapellido"));
+                estu.setsApellido("");
+                
+                System.out.println("nombre" + rs.getString("primernombre"));
+            }else{
+                System.out.println("NOOO esta");
+            }
+            
+            sqlquery = "SELECT * FROM \"dycicle\".estudianteusb"
+                    + " WHERE nombreusuario = '" + u + "';" ;
+            rs = stmt.executeQuery(sqlquery);
+            b = rs.next();
+            
+            if (b){
+                System.out.println("Si estaa");
+                estu.setCarnet(rs.getString("carnet"));
+            }else{
+                System.out.println("NOOO esta");
+            }
+            
+            
+            return estu;
+
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return estu;
+
+    }
     
 }
