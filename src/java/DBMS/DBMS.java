@@ -491,7 +491,7 @@ public class DBMS {
                     + "'opcion', '0','0000' , '0', 'null', 'null');");
             ps3.setString(1, e.getNombreusuario());
             ps4 = conexion.prepareStatement("INSERT INTO \"dycicle\".Postulacion"
-                    + " VALUES (?, 'En evaluacion', 'recomendacion', 'comentario');");
+                    + " VALUES (?, 'Sin postular', 'recomendacion', 'comentario');");
             ps4.setString(1, e.getNombreusuario());
             Statement stmt = conexion.createStatement();
             Integer i = ps1.executeUpdate();
