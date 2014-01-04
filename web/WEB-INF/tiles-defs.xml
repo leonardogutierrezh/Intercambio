@@ -283,6 +283,10 @@
         <put name="body" value="/estudianteUSB/cargaDocumentosUSB.jsp" />
     </definition>
     
+    <definition name="cargarPlanEstudio" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaMateriasUSB.jsp" />
+    </definition>
+    
     <definition name="formularioUSB_Error" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
         <put name="body" value="/estudianteUSB/cargaMateriasUSB.jsp" />
     </definition>

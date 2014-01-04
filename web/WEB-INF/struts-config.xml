@@ -526,20 +526,14 @@
             <forward name ="fail" path = "cargaincorrecta" />
             <forward name="error" path="formularioUSB_Error" />
        </action>
-
-       <action name="PlanillaUSB" path="/ModificarPlanilla_EstUSB" scope="session" type="Actions.LlenadoPlanilla_EstUSB">
-            <forward name="success" path="cargacorrecta" />
-            <forward name ="fail" path = "cargaincorrecta" />
-            <forward name="error" path="formularioUSB_Error" />
-       </action>
        
         <action name = "Usuario" path="/ObtenerDatos2" scope="session" type="Actions.ObtenerDatos2">
             <forward name ="success" path="modificarPlanillaUSB" />
        </action>
        
        <action name="PlanillaUSB" path="/ModificarPlanilla_EstUSB" scope="session" type="Actions.ModificarPlanilla_EstUSB">
-            <forward name="success" path="accionesEstUSB" />
-            <forward name ="fail" path = "formularioUSB" />
+            <forward name="success" path="cargacorrecta" />
+            <forward name ="fail" path = "cargacorrecta" />
             <forward name="error" path="formularioUSB" />
        </action>
        
@@ -588,7 +582,7 @@
                input="/upload.jsp"
                validate = "true"
                scope="request">
-            <forward name="usb" path="cargaarchivoscorrecta"/>
+            <forward name="usb" path="cargarPlanEstudio"/>
             <forward name="ext" path="cargaarchivoscorrectaExt"/>
             <forward name="errorusb" path="errortam"/>
             <forward name="errorext" path="errortamExt"/>
