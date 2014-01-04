@@ -42,7 +42,9 @@ ddmenu.init({
         <a class="menuitem submenuheader">Gestión de solicitudes </a>
         <div class="submenu">
             <ul>
-                <li><a> <html:link action="/CargarLlenarPlanillaUSB" >Formulario de solicitud</html:link></a></li>
+                <!-- <li><a> <html:link action="/CargarLlenarPlanillaUSB" >Formulario de solicitud</html:link></a></li> -->
+                <li><a> <html:link action="/CargarPostulacion" >Postularse</html:link></a></li> 
+                <li><a> <html:link action="/ModificarPostulacionUSB" >Modificar Postulacion</html:link></a></li> 
                 <li><a> <html:link action="/VerificarPlanillaUSB">Descargar planilla</html:link></a></li>
                 <li><a> <html:link action="/GenerarCarpeta">Descargar carpeta</html:link></a></li>
                 <li><a> <html:link action="/EstadoPostulacionUSB" >Ver estado de solicitud</html:link></a></li>

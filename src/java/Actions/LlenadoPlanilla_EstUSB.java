@@ -4,6 +4,7 @@
  */
 package Actions;
 
+import Clases.Estudiante;
 import Clases.Idiomas;
 import Clases.PlanDeEstudio;
 import Clases.PlanillaUSB;
@@ -28,7 +29,7 @@ import org.apache.struts.action.ActionMessage;
  *
  * @author caponte
  */
-public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
+public class LlenadoPlanilla_EstUSB extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
@@ -68,7 +69,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-
+        System.out.println("LLENADO DE PLANILLA");
         PlanillaUSB p = (PlanillaUSB) form;
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
@@ -84,12 +85,18 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         
         // PONER NOMBRE>> APELLIDO... cosas que no deberian ir en el formulario.
         String nombreUsuario = p.getNombreUsuario();
-        System.out.println(nombreUsuario);
+        System.out.println("NOMBRE DE USUARIO " + nombreUsuario);
         
         EstudianteUSB es = DBMS.getInstance().obtenerDatosEstUsb(nombreUsuario); 
+        
         p.setApellido1(es.getpApellido());
-        p.setNombre1(es.getpNombre());        
+        p.setApellido2(es.getsApellido());
+        p.setNombre1(es.getpNombre());
+        p.setNombre2(es.getsNombre());
         p.setCarnet(es.getCarnet());
+        System.out.println("apeliido1  " + p.getApellido1());
+        System.out.println("apeliido2  " + p.getApellido2());
+        System.out.println("carnet " + p.getCarnet());
         
         // ####################################
         //        Validacion de datos.
@@ -98,37 +105,6 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         //        PASO 1.1
         //Verifica que los apellidos no  esten vacios.
 
-        if (p.getApellido1().equals("")) {
-            error.add("apellido1", new ActionMessage("error.apellidos.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[0] = true;
-        }
-        
-        /*
-        if (p.getApellido2().equals("")) {
-            error.add("apellido2", new ActionMessage("error.apellidos.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[0] = true;
-        }
-        */
-        
-        //Verifica que los nombres no  esten vacios.
-        if (p.getNombre1().equals("")) {
-            error.add("nombre1", new ActionMessage("error.nombres.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[0] = true;
-        }
-        /*
-         if (p.getNombre2().equals("")) {
-         error.add("nombre2", new ActionMessage("error.nombres.required"));
-         saveErrors(request, error);
-         huboError = true;
-         arre[0] = true;
-         }
-         */
         // Verifica escogencia de Sexo
         if (p.getSexo().contains("Seleccione")) {
             error.add("sexo", new ActionMessage("error.sexo.required"));
@@ -161,6 +137,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         }
 
         // Carnet no  vacio y bien estructurado
+        /*
         if (p.getCarnet().equals("")) {
             error.add("carnet", new ActionMessage("error.carnet.required"));
             saveErrors(request, error);
@@ -172,12 +149,13 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
             arre[0] = true;
-        }
+        }*/
 
 
 //        PASO 1.2
         // Calle no  vacio.
         if (p.getCalle().equals("")) {
+            System.out.println("error calle");
             error.add("calle", new ActionMessage("error.calle.required"));
             saveErrors(request, error);
             huboError = true;
@@ -567,7 +545,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         }
 
 
-        System.out.println("fin de validacion");
+
 
 //  ############### Comparar ambas fechas
 
@@ -601,6 +579,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
 //            huboError = true;
 //        }
 
+        System.out.println("Comenzamos " + huboError);
+        
         Usuario u = new Usuario();
         u.setNombreusuario(p.getNombreUsuario());
         u.setConfirmar(p.getPeriodo());
@@ -635,9 +615,15 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         request.setAttribute("plan", sup);
         request.setAttribute("lang", arra);
 
-        System.out.println(huboError);
+        System.out.println("ERROR " + huboError);
         if (huboError) {
-            System.out.println("HUBO ERRORRRRR " + huboError);
+            System.out.println("hubo error");
+            
+            Estudiante e = DBMS.getInstance().buscarEstudiante(u);
+            EstudianteUSB estUSB = DBMS.getInstance().buscarCarnet(u);
+            request.setAttribute("Estudiante", e);
+            request.setAttribute("EstudianteUSB", estUSB);
+            
             String especial = ",";
 
             for (int i = 0; i < 7; i++) {
@@ -648,6 +634,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             }
             u.setNombre(especial);
             request.setAttribute("Usuario", u);
+            request.setAttribute("Planilla",p);
             return mapping.findForward(ERROR);
 
         } else if (hay.getNombreUsuario() != null) {

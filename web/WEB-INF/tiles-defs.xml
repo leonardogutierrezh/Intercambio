@@ -278,7 +278,35 @@
     <definition name="formularioUSB" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
         <put name="body" value="/estudianteUSB/formularioSolicitudUSB.jsp" />
     </definition>
-            
+    
+    <definition name="datosCorrectosUSB" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaDocumentosUSB.jsp" />
+    </definition>
+    
+    <definition name="formularioUSB_Error" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaMateriasUSB.jsp" />
+    </definition>
+
+    <definition name="cargaidiomasUSB" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/cargaIdiomasUSB.jsp" />
+    </definition>
+    
+    <definition name="LlenadoPlanillaUSB" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/llenadoPlanillaUSB.jsp" />
+    </definition>
+    
+    <definition name="Modif_PlanillaUSB" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/modificarPlanillaUSB.jsp" />
+    </definition>
+    
+    <definition name="PlanillaLlenada" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/PlanillaYaLlenada.jsp" />
+    </definition>
+    
+    <definition name="NoHayPlanilla" extends="Base_form_estudiante"> <!-- pagina acciones de estudiante usb -->
+        <put name="body" value="/estudianteUSB/NoHayPlanilla.jsp" />
+    </definition>
+                                                
     <definition name="modificarPlanillaUSB" extends="baseEstudiante"> <!-- pagina acciones de estudiante usb -->
         <put name="body" value="/estudianteUSB/modificarPlanilla.jsp" />
     </definition>
