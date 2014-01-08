@@ -2667,5 +2667,24 @@ public class DBMS {
         return estu;
 
     }
+
+    public ArrayList<Usuario> listarPostuladosDRIC() {
+        
+        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE estadopostulacion = 'En evaluacion por DRIC';");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Usuario t = new Usuario();
+                t.setNombreusuario(rs.getString("nombreusuario"));
+                usrs.add(t);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+    }
     
 }
