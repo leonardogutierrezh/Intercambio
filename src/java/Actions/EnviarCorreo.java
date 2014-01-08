@@ -6,6 +6,8 @@ package Actions;
 
 import Clases.Correo;
 import Clases.Usuario;
+import DBMS.DBMS;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 import nl.captcha.Captcha;
+import org.apache.struts.util.LabelValueBean;
 
 /**
  *
@@ -108,7 +111,18 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
         }
 
          if (huboError) {
+            
+            ArrayList<Usuario> users = DBMS.getInstance().listarCoordinaciones();
+            ArrayList usuarios = new ArrayList();
+            for (Usuario u : users){
+                //System.out.println(u.getEmail());
+                usuarios.add(new LabelValueBean(u.getNombreusuario(), u.getEmail()));
+            }
+            System.out.println(users.size());
+            request.setAttribute("email", usuarios);
+            
             return mapping.findForward(ERROR);
+             
 
         } else{
         

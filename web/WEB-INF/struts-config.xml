@@ -500,7 +500,17 @@
             <forward name="success" path="formularioUSB" />
             <forward name="modificar" path="formularioUSB" />
        </action>
+
+       <action name="Usuario" path="/CargarPostulacion" scope="session" type="Actions.VerSiHayPostulacion">
+            <forward name="success" path="LlenadoPlanillaUSB" />
+            <forward name="fail" path="PlanillaLlenada" />
+       </action>
        
+       <action name="Usuario" path="/ModificarPostulacionUSB" scope="session" type="Actions.VerSiHayPostulacion">
+            <forward name="success" path="NoHayPlanilla" />
+            <forward name="fail" path="Modif_PlanillaUSB" />
+       </action>       
+              
        <action name="Usuario" path="/EstadoPostulacionUSB" scope="session" type="Actions.EstadoPostulacionUSB">
             <forward name="success" path="estadoPostulacionUSB" />
        </action>
@@ -511,13 +521,19 @@
             <forward name="error" path="formularioUSB" />
        </action>
        
+       <action name="PlanillaUSB" path="/LlenadoPlanilla_EstUSB" scope="session" type="Actions.LlenadoPlanilla_EstUSB">
+            <forward name="success" path="datosCorrectosUSB" />
+            <forward name ="fail" path = "cargaincorrecta" />
+            <forward name="error" path="formularioUSB_Error" />
+       </action>
+       
         <action name = "Usuario" path="/ObtenerDatos2" scope="session" type="Actions.ObtenerDatos2">
             <forward name ="success" path="modificarPlanillaUSB" />
        </action>
        
        <action name="PlanillaUSB" path="/ModificarPlanilla_EstUSB" scope="session" type="Actions.ModificarPlanilla_EstUSB">
-            <forward name="success" path="accionesEstUSB" />
-            <forward name ="fail" path = "formularioUSB" />
+            <forward name="success" path="cargacorrecta" />
+            <forward name ="fail" path = "cargacorrecta" />
             <forward name="error" path="formularioUSB" />
        </action>
        
@@ -536,7 +552,7 @@
        </action>
        
        <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
-           <forward name ="success" path="cargaplancorrecta" />
+           <forward name ="success" path="cargaidiomasUSB" />
            <forward name ="fail" path="cargaplanincorrecta" />
        </action>
        
@@ -566,7 +582,7 @@
                input="/upload.jsp"
                validate = "true"
                scope="request">
-            <forward name="usb" path="cargaarchivoscorrecta"/>
+            <forward name="usb" path="cargarPlanEstudio"/>
             <forward name="ext" path="cargaarchivoscorrectaExt"/>
             <forward name="errorusb" path="errortam"/>
             <forward name="errorext" path="errortamExt"/>

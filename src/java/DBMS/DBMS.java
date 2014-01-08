@@ -491,7 +491,7 @@ public class DBMS {
                     + "'opcion', '0','0000' , '0', 'null', 'null');");
             ps3.setString(1, e.getNombreusuario());
             ps4 = conexion.prepareStatement("INSERT INTO \"dycicle\".Postulacion"
-                    + " VALUES (?, 'En evaluacion', 'recomendacion', 'comentario');");
+                    + " VALUES (?, 'Sin postular', 'recomendacion', 'comentario');");
             ps4.setString(1, e.getNombreusuario());
             Statement stmt = conexion.createStatement();
             Integer i = ps1.executeUpdate();
@@ -543,7 +543,80 @@ public class DBMS {
         }
         return null;
     }
-
+    
+    public boolean verSiHayPostulacion(Usuario u){
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.prepareStatement("SELECT estadopostulacion FROM \"dycicle\".POSTULACION WHERE nombreusuario = ?");
+            ps.setString(1, u.getNombreusuario());
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                if ( rs.getString("estadopostulacion").equals("Sin postular") ){
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public Estudiante buscarEstudiante(Usuario u){
+        PreparedStatement ps = null;
+        Estudiante e = new Estudiante();
+        try {
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".Estudiante WHERE nombreusuario = ?");
+            ps.setString(1, u.getNombreusuario());
+            ResultSet rs = ps.executeQuery();
+            
+            
+            while (rs.next()) {
+                e.setNombreusuario(rs.getString("nombreusuario"));
+                e.setpApellido(rs.getString("primerapellido"));
+                System.out.println("apellido del estudiante en DBMS " + rs.getString("primerapellido"));
+                if ( rs.getString("segundoapellido") == null ) 
+                    e.setsApellido("");
+                else
+                    e.setsApellido(rs.getString("segundoapellido"));
+                
+                e.setpNombre(rs.getString("primernombre"));
+                
+                if ( rs.getString("segundonombre") == null ) 
+                    e.setsNombre("");
+                else
+                    e.setsNombre(rs.getString("segundonombre"));                
+            }            
+            return e;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return e;
+    }
+    
+    public EstudianteUSB buscarCarnet(Usuario u){
+        PreparedStatement ps = null;
+        EstudianteUSB e = new EstudianteUSB();
+        try {
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".Estudianteusb WHERE nombreusuario = ?");
+            ps.setString(1, u.getNombreusuario());
+            ResultSet rs = ps.executeQuery();
+            
+            
+            while (rs.next()) {
+                e.setNombreusuario(rs.getString("nombreusuario"));
+                e.setCarnet(rs.getString("carnet"));
+            }            
+            return e;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return e;
+    }
+    
     public boolean cambiarEstadoSolicitud(Usuario u) {
         PreparedStatement ps = null;
         try {
@@ -610,17 +683,23 @@ public class DBMS {
         return usrs;
     }
 
-        public ArrayList<Usuario> listarCoordinaciones() {
+    public ArrayList<Usuario> listarCoordinaciones() {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
         PreparedStatement ps = null;
         try {
-            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario WHERE privilegio = 3");
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".postulante");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario u = new Usuario();
-                u.setNombreusuario(rs.getString("nombreusuario"));
-                u.setEmail(rs.getString("email"));
+                u.setNombreusuario(rs.getString("nombrecarrera"));
+                PreparedStatement no = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario WHERE nombreusuario = '" + rs.getString("nombreusuario") + "'");
+                ResultSet res_no = no.executeQuery();
+                while (res_no.next()){
+                    System.out.println(res_no.getString("email"));
+                    u.setEmail(res_no.getString("email"));
+                }  
+                
                 usrs.add(u);
             }
 
@@ -628,8 +707,8 @@ public class DBMS {
             ex.printStackTrace();
         }
         return usrs;
-    }
-    
+    }    
+
     public ArrayList<Usuario> listarDestinatarios(String[] nombres) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
@@ -1404,7 +1483,7 @@ public class DBMS {
         PlanillaUSB datos = new PlanillaUSB();
 
         try {
-
+            System.out.println("entre en la funcion " + u.getNombreusuario());
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
                     + "\"dycicle\".estudianteusb NATURAL JOIN "
                     + " \"dycicle\".AntecedenteAcademico NATURAL JOIN "
@@ -1437,6 +1516,120 @@ public class DBMS {
             rs4.next(); //Comentario sobre el estudiante
 
             boolean primeraUni = rs.next();
+            while (rs.next()) {
+                System.err.println("holaaaaaaaaaaaaaaaaaaa");
+                datos.setNombreUsuario(rs.getString("NombreUsuario"));
+                datos.setApellido1(rs.getString("PrimerApellido"));
+                datos.setApellido2(rs.getString("SegundoApellido"));
+                datos.setNombre1(rs.getString("PrimerNombre"));
+                datos.setNombre2(rs.getString("SegundoNombre"));
+                datos.setCedula(rs.getString("Cedula"));
+                datos.setCarnet(rs.getString("Carnet"));
+                datos.setSexo(rs.getString("Sexo"));
+                datos.setUrbanizacion(rs.getString("Urbanizacion"));
+                datos.setCalle(rs.getString("Calle"));
+                datos.setEdificio(rs.getString("Edificio"));
+                datos.setApartamento(rs.getString("Apartamento"));
+                datos.setCiudad(rs.getString("Ciudad"));
+                datos.setEstado(rs.getString("Estado"));
+                datos.setCodPostal(rs.getString("CodPostal"));
+                datos.setTelefonoCasa(rs.getString("TelefonoCasa"));
+                datos.setTelefonoCelular(rs.getString("TelefonoCel"));
+                datos.setFax(rs.getString("Fax"));
+                datos.setEmail(rs.getString("Email"));
+                datos.setFechaNacimiento(rs.getString("FechaNac"));
+                datos.setNacionalidad(rs.getString("Nacionalidad"));
+                System.out.println("----------------- " + datos.getNacionalidad());
+                System.out.println("naaa ---- "+ rs.getString("Nacionalidad"));
+                datos.setApellidosRep(rs2.getString("Apellidos"));
+                datos.setNombresRep(rs2.getString("Nombres"));
+                datos.setCelRep(rs2.getString("TelefonoCel"));
+                datos.setTlfRepCasa(rs2.getString("TelefonoHab"));
+                datos.setEmailRep(rs2.getString("EmailRep"));
+                datos.setRelacion(rs2.getString("TipoRelacion"));
+                datos.setDireccionRep(rs2.getString("Direccion"));
+                datos.setIndice(rs.getString("Indice"));
+                datos.setDecanato(rs.getString("Decanato"));
+                datos.setAreaEstud(rs.getString("AreaDeEstudio"));
+                datos.setCarrera(rs.getString("Carrera"));
+                datos.setOpcion(rs.getString("Opcion"));
+                datos.setCreditosApro(rs.getInt("CredAprob"));
+                datos.setFuenteFinanciamiento(rs.getString("PpalFuente"));
+                datos.setAyudaEc(rs.getString("TieneBecaDe"));
+                datos.setDescripcion1(rs.getString("DescrFuente"));
+                datos.setDescripcion2(rs.getString("DescrBeca"));
+                datos.setProgramaOpcion1(rs3.getString("TipoPrograma"));
+                datos.setNombreProgramaOpcion1(rs3.getString("NombrePrograma"));
+                datos.setDuracionProgramaOpcion1(rs3.getString("Duracion"));
+                datos.setPaisOpcion1(rs3.getString("Pais"));
+                datos.setNombreOpcion1(rs3.getString("NombreUni"));
+                datos.setMesFechaIni1(rs3.getString("MesFechaIni"));
+                datos.setAnoFechaIni1(rs3.getString("AnioFechaIni"));
+                datos.setMesFechaFin1(rs3.getString("MesFechaFin"));
+                datos.setAnoFechaFin1(rs3.getString("AnioFechaFin"));
+            }
+            boolean segundaUni = rs3.next();
+            while (rs3.next()){
+                datos.setProgramaOpcion2(rs3.getString("TipoPrograma"));
+                datos.setNombreProgramaOpcion2(rs3.getString("NombrePrograma"));
+                datos.setDuracionProgramaOpcion2(rs3.getString("Duracion"));
+                datos.setPaisOpcion2(rs3.getString("Pais"));
+                datos.setNombreOpcion2(rs3.getString("NombreUni"));
+                datos.setMesFechaIni2(rs3.getString("MesFechaIni"));
+                datos.setAnoFechaIni2(rs3.getString("AnioFechaIni"));
+                datos.setMesFechaFin2(rs3.getString("MesFechaFin"));
+                datos.setAnoFechaFin2(rs3.getString("AnioFechaFin"));
+
+                datos.setComentarioRecomendacion(rs4.getString("Comentario"));
+            }
+
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return datos;
+    }
+    
+    public PlanillaUSB obtenerDatosPlanillaUSB(Usuario u) {
+
+        PlanillaUSB datos = new PlanillaUSB();
+
+        try {
+            System.out.println("entre en la funcion " + u.getNombreusuario());
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
+                    + "\"dycicle\".estudianteusb NATURAL JOIN "
+                    + " \"dycicle\".AntecedenteAcademico NATURAL JOIN "
+                    + "\"dycicle\".Financiamiento "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+
+            sqlquery = "SELECT * FROM \"dycicle\".representante "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+
+            stmt = conexion.createStatement();
+            ResultSet rs2 = stmt.executeQuery(sqlquery);
+            rs2.next(); //Informacion del representante
+
+            sqlquery = "SELECT * FROM \"dycicle\".universidades "
+                    + "WHERE nombreusuario = '" + u.getNombreusuario() + "' "
+                    + "ORDER BY prioridad;";
+
+            stmt = conexion.createStatement();
+            ResultSet rs3 = stmt.executeQuery(sqlquery);
+            rs3.next(); //Informacion de la primera opcion de universidad
+            
+            sqlquery = "SELECT * FROM \"dycicle\".estudiante "
+                    + "WHERE nombreusuario = '" + u.getNombreusuario() + "' ";
+
+            stmt = conexion.createStatement();
+            ResultSet rs4 = stmt.executeQuery(sqlquery);
+            rs4.next(); //Comentario sobre el estudiante
+
+            boolean primeraUni = rs.next();
+            System.err.println("holaaaaaaaaaaaaaaaaaaa");
             datos.setNombreUsuario(rs.getString("NombreUsuario"));
             datos.setApellido1(rs.getString("PrimerApellido"));
             datos.setApellido2(rs.getString("SegundoApellido"));
@@ -1458,6 +1651,8 @@ public class DBMS {
             datos.setEmail(rs.getString("Email"));
             datos.setFechaNacimiento(rs.getString("FechaNac"));
             datos.setNacionalidad(rs.getString("Nacionalidad"));
+            System.out.println("----------------- " + datos.getNacionalidad());
+            System.out.println("naaa ---- "+ rs.getString("Nacionalidad"));
             datos.setApellidosRep(rs2.getString("Apellidos"));
             datos.setNombresRep(rs2.getString("Nombres"));
             datos.setCelRep(rs2.getString("TelefonoCel"));
@@ -1495,9 +1690,8 @@ public class DBMS {
             datos.setAnoFechaIni2(rs3.getString("AnioFechaIni"));
             datos.setMesFechaFin2(rs3.getString("MesFechaFin"));
             datos.setAnoFechaFin2(rs3.getString("AnioFechaFin"));
-            
+
             datos.setComentarioRecomendacion(rs4.getString("Comentario"));
-            
 
 
         } catch (SQLException ex) {
@@ -1506,7 +1700,7 @@ public class DBMS {
 
         return datos;
     }
-
+    
     public PlanillaExt obtenerPlanillaExt(Usuario u) {
 
         PlanillaExt datos = new PlanillaExt();

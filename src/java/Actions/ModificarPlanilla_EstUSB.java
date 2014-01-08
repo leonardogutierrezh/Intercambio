@@ -230,10 +230,11 @@ public class ModificarPlanilla_EstUSB extends org.apache.struts.action.Action {
 
         } else {
             if (DBMS.getInstance().modificarPlanillaUSB(p)) {
-
+                System.out.println("succes");
                 boolean boo = DBMS.getInstance().registrar(p.getNombreUsuario(), "Modificion de la planilla por parte de un estudiante nacional");
                 return mapping.findForward(SUCCESS);
             } else {
+                System.out.println("fail");
                 return mapping.findForward(FAIL);
             }
         }
