@@ -43,7 +43,7 @@ public class ListarSolicitudesDRIC extends org.apache.struts.action.Action {
             
             ArrayList<Usuario> users = DBMS.getInstance().listarPostuladosDRIC();
             System.out.println(users);
-            request.setAttribute("usuario", users);
+            request.setAttribute("usuarios", users);
             return mapping.findForward(SUCCESS);
     }
 }
