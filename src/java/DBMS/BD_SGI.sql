@@ -5,6 +5,17 @@ CREATE SCHEMA "dycicle"
 GRANT ALL ON SCHEMA "dycicle" TO postgres;
 
 /* Entidad principal USUARIO necesaria para acceder al sistema */
+CREATE TABLE "dycicle".UNIVERSIDADEXTRANGERA(
+	Nombre    	VARCHAR(20)	NOT NULL,
+	Pais		VARCHAR(30)	NOT NULL,
+	Cupo	        NUMERIC(3)	NOT NULL,
+	CONSTRAINT 	PK_Universidadextrangera	PRIMARY KEY (Nombre)
+)
+WITH (
+OIDS = FALSE
+);
+
+/* Entidad principal USUARIO necesaria para acceder al sistema */
 CREATE TABLE "dycicle".USUARIO(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Email		VARCHAR(30)	NOT NULL,
