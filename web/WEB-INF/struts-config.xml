@@ -625,6 +625,9 @@
             <forward name="success" path="ListarSolicitudesCoordinacion" />
             <forward name="failure" path="accFallo"/>
       </action>
+      <action input="/" name="Usuario" path="/ListarSolicitudesDRIC" scope="session" type="Actions.ListarSolicitudesDRIC">
+          <forward name="success" path="ListarSolicitudesDRIC" />
+      </action>
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
