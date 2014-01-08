@@ -8,6 +8,7 @@ package Clases;
 public class Universidad {
     private String nombre;
     private String pais;
+    private Integer cupo;
 
     public String getNombre() {
         return nombre;
@@ -25,7 +26,15 @@ public class Universidad {
         this.pais = pais;
     }
     
-    public String toString(){
+        public void setCupo(Integer cupo) {
+        this.cupo = cupo;
+    }
+    
+    public Integer getCupo(){
+        return cupo;
+    }
+    
+     public String toString(){
         return this.nombre + " - " + this.pais;
     }
 }
