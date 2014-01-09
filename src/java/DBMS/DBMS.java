@@ -543,6 +543,51 @@ public class DBMS {
         }
         return null;
     }
+
+    
+       public ArrayList<Pais> obtenerPais() {
+        PreparedStatement ps = null;
+        try {
+            ArrayList<Pais> paises = new ArrayList<Pais>(0);
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".PAIS");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Pais p = new Pais();
+                p.setNombre(rs.getString("nombre"));
+                paises.add(p);
+            }
+
+            return paises;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+       
+    public ArrayList<Universidad> obtenerUniversidades() {
+        PreparedStatement ps = null;
+        try {
+            ArrayList<Universidad> unis = new ArrayList<Universidad>(0);
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".UNIVERSIDADEXTRANGERA");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Universidad p = new Universidad();
+                p.setNombre(rs.getString("nombre"));
+                p.setPais(rs.getString("pais"));
+                p.setCupo(rs.getInt("cupo"));
+                unis.add(p);
+            }
+
+            return unis;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
     
     public boolean verSiHayPostulacion(Usuario u){
         PreparedStatement ps = null;
@@ -2870,9 +2915,11 @@ public class DBMS {
             PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE estadopostulacion = 'En evaluacion por DRIC';");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Usuario t = new Usuario();
-                t.setNombreusuario(rs.getString("nombreusuario"));
-                usrs.add(t);
+                Usuario u = new Usuario();
+                u.setNombreusuario(rs.getString("nombreusuario"));
+                u.setEmail(rs.getString("email"));
+                u.setConfirmar(rs.getString("estadopostulacion"));
+                usrs.add(u);
             }
 
         } catch (SQLException ex) {
