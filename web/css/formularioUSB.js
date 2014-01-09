@@ -677,6 +677,28 @@
             document.getElementById("uni_princ2").options[0].selected = true 
         }    
 
+        function cambia_universidad3(){ 
+            //tomo el valor del select del pais elegido 
+            programa = "Bilaterales"
+            pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
+            if (programa != 0) { 
+                mis_universidades=eval("uni_" + programa + pais) 
+                num_universidades = mis_universidades.length 
+                document.getElementById("uni_princ").length = num_universidades 
+                for(i=0;i<num_universidades;i++){ 
+                    document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
+                    document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("uni_princ").length = 1 
+                document.getElementById("uni_princ").options[0].value = "-" 
+                document.getElementById("uni_princ").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("uni_princ").options[0].selected = true 
+        }  
+        
         // Estudios Profesionales
         var area_1=new Array("Seleccione", "Áreas de Ciencias Básicas", "Área de Arquitectura y Urbanismo", "Área de Ingeniería", "Área de Ciencias Administrativas")
         // Estudios Tecnologicos 
