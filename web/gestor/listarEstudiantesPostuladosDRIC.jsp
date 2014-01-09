@@ -13,7 +13,9 @@
 <!DOCTYPE html>
 <script  src="/Intercambio/css/jquery.js"></script>
 <script  src="/Intercambio/css/jquery.tablePagination.0.5.js"></script>
+<script  src="/Intercambio/css/formularioUSB.js"></script>
 <script type="text/javascript">
+
     function altRows(id){
         if(document.getElementsByTagName){  
 		
@@ -62,7 +64,10 @@
                         Estado actual
                     </th>
                     <th width="150px" align="center">
-                        Cambiar estado de la solicitud
+                        Universidad Asignada
+                    </th>
+                    <th width="150px" align="center">
+                        Asignar Universidad
                     </th>
                 </tr>
             </thead>
@@ -93,19 +98,10 @@
 
                         <bean:write name="usuarios" property="confirmar" format="UTF-8"/>
                     </td>
-
+                    <td>sin asignar</td>
                     <td align="center" width="150px">
-                        <html:form action="/CambiarEstadoPostulacion"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
-
+                        <html:form action="/AsignarUniversidad"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
-
-                            <html:select name="Usuario" property="confirmar">
-                                <html:option value="">Nvo Estado</html:option>
-                                <html:option value="En Evaluación">En Evaluación</html:option>
-                                <html:option value="Retenido">Retenido</html:option>
-                                <html:option value="Aceptado">Aceptado</html:option>
-                                <html:option value="Rechazado">Rechazado</html:option>
-                            </html:select>
                             <html:image src="images/postulacion.png" value="" property="" style=""/> 
                         </html:form>
                     </td>
