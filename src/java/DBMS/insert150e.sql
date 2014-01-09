@@ -1,3 +1,20 @@
+INSERT INTO dycicle.PAIS VALUES ('Alemania');
+INSERT INTO dycicle.PAIS VALUES ('Australia');
+INSERT INTO dycicle.PAIS VALUES ('Canadá');
+INSERT INTO dycicle.PAIS VALUES ('Colombia');
+INSERT INTO dycicle.PAIS VALUES ('España');
+
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Karlsruhe', 'Alemania', '2');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Siegen', 'Alemania', '3');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Tecnológica de Swinburne', 'Australia', '1');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Instituto de Tecnología de Ontario', 'Canadá', '5');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Pontificia Universidad Bolivariana', 'Colombia', '5');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Externado', 'Colombia', '3');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Granada', 'España', '3');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Zaragoza', 'España', '2');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Politécnica de Valencia', 'España', '3');
+
+
 INSERT INTO dycicle.USUARIO VALUES ('a1','1@gmai.com',5,'a','123456','now');
 INSERT INTO dycicle.ESTUDIANTE (NombreUsuario,PrimerNombre,PrimerApellido,CarreraEst) VALUES ('a1','a','b','Ingenieria de Materiales');
 INSERT INTO dycicle.GESTION VALUES ('a1','Brasil','Universidad Estadual de Campinas','0','0','3','2','5','3','4','3','2','1','1','2','5','4','5','0');
