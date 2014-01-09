@@ -6,10 +6,28 @@ GRANT ALL ON SCHEMA "dycicle" TO postgres;
 
 /* Entidad principal USUARIO necesaria para acceder al sistema */
 CREATE TABLE "dycicle".UNIVERSIDADEXTRANGERA(
-	Nombre    	VARCHAR(20)	NOT NULL,
+	Nombre    	VARCHAR(100)	NOT NULL,
 	Pais		VARCHAR(30)	NOT NULL,
 	Cupo	        NUMERIC(3)	NOT NULL,
 	CONSTRAINT 	PK_Universidadextrangera	PRIMARY KEY (Nombre)
+)
+WITH (
+OIDS = FALSE
+);
+
+CREATE TABLE "dycicle".UNIVERSIDADASIGNADA(
+        NombreUsuario	VARCHAR(20)	NOT NULL,
+	Nombre    	VARCHAR(100)	NOT NULL,
+	Pais		VARCHAR(30)	NOT NULL,
+	CONSTRAINT 	PK_UniversidadAsignada	PRIMARY KEY (NombreUsuario)
+)
+WITH (
+OIDS = FALSE
+);
+
+CREATE TABLE "dycicle".PAIS(
+	Nombre    	VARCHAR(20)	NOT NULL,
+	CONSTRAINT 	PK_Nombre	PRIMARY KEY (Nombre)
 )
 WITH (
 OIDS = FALSE
@@ -335,6 +353,17 @@ ALTER TABLE "dycicle".ESTUDIANTE ADD
 ALTER TABLE "dycicle".EstudianteUSB ADD
   CONSTRAINT FK_EstudianteUSB_Estudiante FOREIGN KEY (NombreUsuario)
     REFERENCES "dycicle".ESTUDIANTE;
+
+
+----------------------Universidad Extrangera--------------------------------- 
+ALTER TABLE "dycicle".UNIVERSIDADEXTRANGERA ADD
+  CONSTRAINT FK_UniversidadExtrangera_Pais FOREIGN KEY (Pais)
+    REFERENCES "dycicle".PAIS;
+
+----------------------Universidad Extrangera Asignada--------------------------------- 
+ALTER TABLE "dycicle".UNIVERSIDADASIGNADA ADD
+  CONSTRAINT FK_UniversidadAsignada_Usuario FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".USUARIO;
 
 ---------------------ESTUDIANTE Internacional---------------------------
 /*Las opciones sobre tomar un curso de español son Si o No 
