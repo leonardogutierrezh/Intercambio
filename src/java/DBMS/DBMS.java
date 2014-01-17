@@ -570,7 +570,7 @@ public class DBMS {
         PreparedStatement ps = null;
         try {
             ArrayList<Universidad> unis = new ArrayList<Universidad>(0);
-            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".UNIVERSIDADEXTRANGERA");
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".UNIVERSIDADEXTRANGERA WHERE cupo > 0;" );
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -680,6 +680,24 @@ public class DBMS {
         return false;
     }
 
+    public boolean cambiarUniversidadAsignada(UniversidadAsignada u) {
+        PreparedStatement ps = null;
+        try {
+
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".UNIVERSIDADASIGNADA SET nombre = ? "
+                    + "WHERE nombreusuario = ?");
+            ps.setString(1, u.getNombre());
+            ps.setString(2, u.getNombreUsuario());
+            Integer i = ps.executeUpdate();
+
+            return i > 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
     public boolean modificarPerfil(Usuario u) {
         String query = "UPDATE \"dycicle\".usuario SET ";
         try {
@@ -2397,6 +2415,52 @@ public class DBMS {
         return datos;
     }
     
+            
+      public boolean restarCupo(Universidad u) {
+
+        try {
+            PreparedStatement ps = null;
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".UNIVERSIDADEXTRANGERA SET cupo = cupo - 1 WHERE nombre = '" + u.getNombre()  + "';");
+            int j = ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+      
+    public boolean sumarCupo(Universidad u) {
+
+        try {
+            PreparedStatement ps = null;
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".UNIVERSIDADEXTRANGERA SET cupo = cupo + 1 WHERE nombre = '" + u.getNombre()  + "';");
+            int j = ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+      
+    public Universidad obtenerUniversidadExtrangera(String u) {
+        Universidad datos = new Universidad();
+        try {
+
+            PreparedStatement ps = null;
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".UNIVERSIDADEXTRANGERA WHERE nombre = '" + u  + "';");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                datos.setCupo(rs.getInt("cupo"));
+                datos.setNombre(rs.getString("nombre"));
+                datos.setPais(rs.getString("pais"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return datos;
+    }
+            
+            
     /* Esta funcion es para insertar el plan de estudio de los estudiantes extranjeros*/
     public boolean InsertarPlan(PlanExtranjero plan) {
 
@@ -2423,7 +2487,56 @@ public class DBMS {
         }
         return false;
     }
+    
+       public boolean InsertarUniversidadAsignada(UniversidadAsignada uni) {
 
+        try {
+            String sqlquery = "INSERT INTO \"dycicle\".UNIVERSIDADASIGNADA VALUES('" + uni.getNombreUsuario() + "', '" + uni.getNombre() + "', '" + uni.getPais() + "');";
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery);
+            return i > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean existeUniversidadAsignada(String nombre) {
+
+        try {
+            System.out.println(nombre);
+            String sqlquery = "SELECT * FROM \"dycicle\".UNIVERSIDADASIGNADA WHERE nombreusuario = '" + nombre + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet set = stmt.executeQuery(sqlquery);
+            System.out.println(set);
+            return set.next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }   
+       
+    public UniversidadAsignada obtenerUniversidadAsignada(String nombre) {
+        UniversidadAsignada uni = new UniversidadAsignada();
+        try {
+            System.out.println(nombre);
+            String sqlquery = "SELECT * FROM \"dycicle\".UNIVERSIDADASIGNADA WHERE nombreusuario = '" + nombre + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet set = stmt.executeQuery(sqlquery);
+            if (set.next()) {
+             System.out.println("dentro del query");
+             System.out.println(set.getString("nombre"));
+             uni.setNombre(set.getString("nombre"));
+             uni.setNombreUsuario(set.getString("nombreusuario"));
+             uni.setPais(set.getString("pais"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return uni;
+    }   
+    
     public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
@@ -2912,7 +3025,7 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
 
         try {
-            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE estadopostulacion = 'En evaluacion por DRIC';");
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion WHERE estadopostulacion = 'En evaluacion por DRIC' OR estadopostulacion = 'Universidad Asignada';");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario u = new Usuario();
