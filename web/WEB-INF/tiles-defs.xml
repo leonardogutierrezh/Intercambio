@@ -443,15 +443,31 @@
     <definition name="modPerfilGes" extends="baseGestor"> <!-- pagina para modificar perfil del Gestor -->
         <put name="body" value="/gestor/modificarperfil.jsp"/>
     </definition>
-            
+    
+    <definition name="mostrarSolicitudDRIC" extends="baseGestor"> <!-- pagina mostrar solicitud -->
+        <put name="body" value="/gestor/mostrarSolicitudDRIC.jsp" />
+    </definition>
+    
     <definition name="listarEstudiantesPostulados" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
         <put name="body" value="/gestor/listarEstudiantesPostulados.jsp"/>
     </definition>
-    
+ 
+    <definition name="ListarSolicitudesDRIC" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/gestor/listarEstudiantesPostuladosDRIC.jsp"/>
+    </definition>   
+ 
+     <definition name="ListarSolicitudesDRIC2" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/gestor/listarEstudiantesPostuladosDRIC.jsp"/>
+    </definition>   
+ 
     <definition name="accFalloGest" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
         <put name="body" value="/gestor/accionFallo.jsp"/>
     </definition>
-            
+
+    <definition name="AsignarUniversidad" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/gestor/asignarUniversidad.jsp"/>
+    </definition>
+                            
     <definition name="sinArchivos" extends="baseGestor">
         <put name="body" value="/gestor/sinArchivos.jsp"/>
     </definition>
