@@ -1,4 +1,3 @@
-
 .hidden {display: none;}
 
 .unhidden {display: block;}
@@ -99,21 +98,134 @@ a:hover {
 /********************
       ESTRUCTURA
 *********************/
+#enlace{
+    font-size: 12px;
+}
+.pruebitaL{
+    display: inline-block;
+}
+em{
+    color:red;
+}
+input#botonLogin{
+    color:white;
+    font-weight: bold;
+    padding: 5px;
+    width: 68px;
+    height: 28px;
+    cursor: pointer;
+    border:1px solid #0D1FA6;
+    background-color:#3D58F2;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    box-shadow: 0 0 4px rgba(0,0,0, .75);
+}
 
+input#botonLogin:hover, input#botonLogin:active{
+background-color :#0018A3;
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+
+input#botonEnviar{
+    color:white;
+    font-weight: bold;
+    padding: 5px;
+    width: 110px;
+    height: 28px;
+    cursor: pointer;
+    border:1px solid #0D1FA6;
+    background-color:#3D58F2;
+
+   /* background: -moz-linear-gradient(top, #0F97FF 0%, #97D2FF 8%,
+    #0076D1 62%, #005494 100%);
+    background: -webkit-gradient(linear, left top, left bottom,
+        color-stop())*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    box-shadow: 0 0 4px rgba(0,0,0, .75);
+}
+
+input#botonEnviar:hover, input#botonEnviar:active{
+background-color :#0018A3; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+
+
+input#botonRecuperarpw{
+    color:white;
+    font-weight: bold;
+    padding: 5px;
+    width: 155px;
+    height: 28px;
+    cursor: pointer;
+    border:1px solid #0D1FA6;
+    background-color:#3D58F2;
+
+   /* background: -moz-linear-gradient(top, #0F97FF 0%, #97D2FF 8%,
+    #0076D1 62%, #005494 100%);
+    background: -webkit-gradient(linear, left top, left bottom,
+        color-stop())*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    box-shadow: 0 0 4px rgba(0,0,0, .75);
+}
+
+input#botonRecuperarpw:hover, input#botonRecuperarpw:active{
+background-color :#0018A3; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+div.tableRow {
+        margin: 0 auto;
+        display: table-row;
+}
+
+div.tableRow > p, div.tableRow > label, div.tableRow > input {
+        display: table-cell;
+        vertical-align: top;
+        padding: 3px;
+}
+div.tableRow label:first-child {
+        text-align: right;
+}
+
+
+/* ###############*/ 
 #body-content {
     margin: auto;
     background-color: white;
     width: 80%;
     min-height: 100%;
     position: relative;
+    /*border: 1px dotted red;*/
 
 }
 
 #banner{
-    margin-left: auto;
-    margin-right: auto;
-    height: 250px;
-    width: 100%;
+
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 973px;
+    max-height: 147px;
+    border-bottom: 3px solid;
+    border-bottom-color: #5A93CC;
+    /*border: 1px dotted green;*/
 }
 
 .nav li a{
@@ -128,7 +240,7 @@ a:hover {
 }
 
 .nav > li{
-    float:left;	
+    float:left; 
 }
 
 #login-form{
@@ -137,6 +249,14 @@ a:hover {
     margin-right: auto;
     background-color: white;
     text-align: center;
+    padding: 3px;
+}
+
+#login-form_aux{
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
     padding: 3px;
 }
 
@@ -150,6 +270,8 @@ a:hover {
     width: 150px;
     float: right;
     margin-top: 50px;
+    margin-right: 6%;
+    /*border: 1px dotted lime;*/
 }
 
 #sidebarL {
@@ -157,9 +279,10 @@ a:hover {
     width: 170px;
     float: left;
     margin-top: 50px;
-    text-align: left;
-    font-size: 0.9em;
+    text-align: right;
+    font-size: 11px;
     font-weight: bold;
+    margin-left: 5%;
 }
 
 #contacto{
@@ -218,7 +341,16 @@ a:hover {
     color:#369;
     font-size: 1.2em;
 }
-
+fieldset{
+    background: #EDF1F5;
+}
+legend{
+    font-size: 18px;
+    color:black;
+}
+#Imagencita{
+    /*border: 1px dotted red;*/
+}
 table.altrowstable th {
     background-color: #126598;
     border-width: 1px;
