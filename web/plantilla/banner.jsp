@@ -4,5 +4,5 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <div>
-    <img id="banner" src="/Intercambio/images/prueba2.png" alt="usb">
+    <img id="banner" src="/Intercambio/images/bannerNiu.png" alt="usb">
 </div>
