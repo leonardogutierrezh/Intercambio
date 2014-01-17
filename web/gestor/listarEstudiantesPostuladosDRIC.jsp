@@ -86,9 +86,8 @@
                     </td>
 
                     <td align="center" width="100px">
-                        <html:form action="/GenerarCarpeta" onsubmit="return(this)">
+                        <html:form action="/ConsultarSolicitudDRIC" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
-                            <input type="hidden" name="nuevacontra" value="<%=session.getAttribute("nombreusuario").toString()%>"/>
                             <html:hidden name = "usuarios" property="confirmar" ></html:hidden>
                             <html:image src="images/archivador.png" style="width:32px;height:32px" value="" property="" /> 
                         </html:form>
@@ -98,7 +97,7 @@
 
                         <bean:write name="usuarios" property="confirmar" format="UTF-8"/>
                     </td>
-                    <td>sin asignar</td>
+                    <td><bean:write name="usuarios" property="confirmar2" format="UTF-8"/></td>
                     <td align="center" width="150px">
                         <html:form action="/AsignarUniversidad"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
