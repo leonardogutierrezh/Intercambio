@@ -6,6 +6,7 @@
 
 package Actions;
 
+import Clases.UniversidadAsignada;
 import Clases.Usuario;
 import DBMS.DBMS;
 import java.util.ArrayList;
@@ -42,6 +43,20 @@ public class ListarSolicitudesDRIC extends org.apache.struts.action.Action {
             HttpSession session = request.getSession();
             
             ArrayList<Usuario> users = DBMS.getInstance().listarPostuladosDRIC();
+            System.out.println("aqui empieza");
+            for (Usuario s : users){
+              System.out.println(s.getNombre());
+              boolean existe = DBMS.getInstance().existeUniversidadAsignada(s.getNombreusuario());
+              System.out.println(existe);
+              if (existe){
+                UniversidadAsignada uni = DBMS.getInstance().obtenerUniversidadAsignada(s.getNombreusuario());
+                s.setConfirmar2(uni.getNombre());
+              }else{
+                s.setConfirmar2("Sin asignar");
+              }
+
+            }
+
             System.out.println(users);
             request.setAttribute("usuarios", users);
             return mapping.findForward(SUCCESS);
