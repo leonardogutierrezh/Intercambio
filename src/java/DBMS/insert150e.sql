@@ -4,7 +4,7 @@ INSERT INTO dycicle.PAIS VALUES ('Canadá');
 INSERT INTO dycicle.PAIS VALUES ('Colombia');
 INSERT INTO dycicle.PAIS VALUES ('España');
 
-INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Karlsruhe', 'Alemania', '2');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Karlsruhe', 'Alemania', '1');
 INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Siegen', 'Alemania', '3');
 INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Tecnológica de Swinburne', 'Australia', '1');
 INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Instituto de Tecnología de Ontario', 'Canadá', '5');
@@ -13,6 +13,7 @@ INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Externado', 'Colo
 INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Granada', 'España', '3');
 INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad de Zaragoza', 'España', '2');
 INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Politécnica de Valencia', 'España', '3');
+INSERT INTO dycicle.UNIVERSIDADEXTRANGERA VALUES ('Universidad Prueba', 'España', '0');
 
 
 INSERT INTO dycicle.USUARIO VALUES ('a1','1@gmai.com',5,'a','123456','now');
