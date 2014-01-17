@@ -644,6 +644,19 @@
       <action input="/" name="Usuario" path="/ListarSolicitudesDRIC" scope="session" type="Actions.ListarSolicitudesDRIC">
           <forward name="success" path="ListarSolicitudesDRIC" />
       </action>
+      <action input="/" name="PlanillaUSB" path="/ListarSolicitudesDRIC2" scope="session" type="Actions.ListarSolicitudesDRIC2">
+          <forward name="success" path="ListarSolicitudesDRIC2" />
+      </action>
+      <action input="/" name="Usuario" path="/AsignarUniversidad" scope="session" type="Actions.AsignarUniversidad">
+          <forward name="success" path="AsignarUniversidad" />
+      </action>
+      <action input="/" name="Usuario" path="/AsignarUniversidadGuardar" scope="session" type="Actions.AsignarUniversidadGuardar">
+        <forward name="success" path="ListarSolicitudesDRIC" />
+      </action>
+      <action input="/" name="Usuario" path="/ConsultarSolicitudDRIC" scope="session" type="Actions.ConsultarSolicitudDRIC">
+             <forward name="success" path="mostrarSolicitudDRIC" />
+      </action>
+
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
