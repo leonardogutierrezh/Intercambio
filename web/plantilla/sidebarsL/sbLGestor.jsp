@@ -36,6 +36,7 @@ ddmenu.init({
     <div class="glossymenu" style="width: 190px">
          <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="ListarEstudiantesPostulados">Inicio</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modPerfilGes">Ver/Modificar perfil</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/ListarSolicitudesDRIC">Ver/Tabla de postulados</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/BusquedaAvanzada"> Búsqueda Avanzada</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/CerrarSesion">Cerrar sesión</html:link></a>
     </div>
