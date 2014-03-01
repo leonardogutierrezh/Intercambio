@@ -6,7 +6,12 @@
 
 package Actions;
 
+import Clases.AntecedentesAcademicos;
+import Clases.Estudiante;
+import Clases.EstudianteUSB;
+import Clases.Universidad;
 import Clases.UniversidadAsignada;
+import Clases.UniversidadPrograma;
 import Clases.Usuario;
 import DBMS.DBMS;
 import java.util.ArrayList;
@@ -43,7 +48,9 @@ public class ListarSolicitudesDRIC extends org.apache.struts.action.Action {
             HttpSession session = request.getSession();
             
             ArrayList<Usuario> users = DBMS.getInstance().listarPostuladosDRIC();
+            ArrayList<Estudiante> lista = new ArrayList<Estudiante>();
             System.out.println("aqui empieza");
+            String uniaux = "Nada";
             for (Usuario s : users){
               System.out.println(s.getNombre());
               boolean existe = DBMS.getInstance().existeUniversidadAsignada(s.getNombreusuario());
@@ -54,11 +61,37 @@ public class ListarSolicitudesDRIC extends org.apache.struts.action.Action {
               }else{
                 s.setConfirmar2("Sin asignar");
               }
-
+              Estudiante aux = new Estudiante();
+              if (!(uniaux.equalsIgnoreCase(s.getContrasena()))){
+                  
+                  Universidad ext = DBMS.getInstance().obtenerUniversidadExtrangera(s.getContrasena());
+                  System.out.println(ext);
+                  aux.setApartamento(ext.getNombre());
+                  aux.setCalle(ext.getPais());
+                  System.out.println("cupo " + ext.getCupo());
+                  aux.setPage(ext.getCupo());
+                  aux.setCiudad(s.getContrasena());
+                  aux.setEstado("True");
+                  lista.add(aux);
+                  uniaux = s.getContrasena();
+              }else{
+                  aux.setConfirmar("False");
+              }
+              EstudianteUSB usb = DBMS.getInstance().obtenerDatosUSB(s);
+              Estudiante est = DBMS.getInstance().obtenerEstudiante(s);
+              Usuario post = DBMS.getInstance().obtenerRecomendacion(s);
+              AntecedentesAcademicos ant = DBMS.getInstance().obtenerAntecedente(s);
+              est.setOrigen(usb.getCarnet());
+              est.setApartamento("3.55");
+              est.setCiudad(post.getConfirmar2());
+              est.setCalle(post.getConfirmar());
+              s.setConfirmar2(est.getpNombre() + " " + est.getpApellido());
+              
+              lista.add(est);
             }
 
             System.out.println(users);
-            request.setAttribute("usuarios", users);
+            request.setAttribute("usuarios", lista);
             return mapping.findForward(SUCCESS);
     }
 }

@@ -26,7 +26,7 @@ public class Universidad {
         this.pais = pais;
     }
     
-        public void setCupo(Integer cupo) {
+    public void setCupo(Integer cupo) {
         this.cupo = cupo;
     }
     

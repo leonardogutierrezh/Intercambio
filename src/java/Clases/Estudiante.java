@@ -29,12 +29,21 @@ public class Estudiante extends Usuario {
     private String email;
     private String fechaNacimiento;
     private String nacionalidad;
+    private String carrera;
 
     // falta la foto y no se como colocarla.
     public Estudiante() {
         super();
     }
-
+    
+    public String getCarrera(){
+        return carrera;
+    }
+    
+    public void setCarrera(String carrera){
+        this.carrera = carrera;
+    }
+    
     public String getOrigen() {
         return origen;
     }

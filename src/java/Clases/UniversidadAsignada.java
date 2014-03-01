@@ -10,10 +10,14 @@ package Clases;
  *
  * @author leonardo
  */
-public class UniversidadAsignada {
+public class UniversidadAsignada extends org.apache.struts.action.ActionForm{
     private String nombreusuario;
     private String nombre;
     private String pais;
+    
+    public UniversidadAsignada() {
+        super();
+    }
 
     public String getNombre() {
         return nombre;
@@ -28,7 +32,7 @@ public class UniversidadAsignada {
     }
 
     public void setPais(String pais) {
-        this.nombre = pais;
+        this.pais = pais;
     }
     
     public String getNombreUsuario() {

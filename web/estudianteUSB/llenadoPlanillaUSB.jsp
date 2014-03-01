@@ -74,7 +74,8 @@
     </script>
     
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a>
+        <!-- <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a> -->
+        <h2>1. Formulario de datos</h2>
     </div>
     
     
@@ -83,9 +84,11 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                     <br>
 
-                    
+                    <fieldset>
                         <br>
+                        <legend>
                         <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
+                        </legend>
                         <br>
                         <br>
                         <table border="0"  align="center">
@@ -235,12 +238,17 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>                
+                        </table>  
+                        </fieldset>
 
+        
                         <br>
-
+                        <fieldset>   
+                        <legend>         
                         <span><a>Paso 1.2: </a><b><a style="text-decoration: underline">INFORMACIÓN DE DOMICILIO</a></b></span>
-
+                        </legend>
+        
+    
                         <br>
                         <br>
                         <table border="0"  align="center">
@@ -350,10 +358,14 @@
 
                             </tbody>
                         </table>
-
+                    </fieldset>
+                
                         <br>
+                        <fieldset>
 
+                        <legend>
                         <span><a>Paso 1.3: </a><b><a style="text-decoration: underline">DATOS DE CONTACTO</a></b></span>
+                        </legend>
                         <br>
                         <br>
                         <table border="0"  align="center">
@@ -412,10 +424,13 @@
 
                             </tbody>
                         </table>
+                        </fieldset>
 
                         <br>
-
-                        <span><a>Paso 1.4: </a><b><a style="text-decoration: underline">PROGRAMAS</a></b></span>
+                        <fieldset>
+                        <legend>
+                            <span><a>Paso 1.4: </a><b><a style="text-decoration: underline">PROGRAMAS</a></b></span>
+                        </legend>
 
                         <br>
                         <br>
@@ -730,9 +745,12 @@
 
                             </tbody>
                         </table>
-
+                        </fieldset>
+                        <fieldset>
+                        <legend>
                         <br>
                         <span><a>Paso 1.5: </a><b><a style="text-decoration: underline">INFORMACIÓN ACADÉMICA</a></b></span>
+                        </legend>
 
                         <br>
                         <br>
@@ -815,10 +833,12 @@
 
                             </tbody>
                         </table>
-
+                        </fieldset>
+                        <fieldset>
                         <br>
-
+                        <legend>
                         <span><a>Paso 1.6: </a><b><a style="text-decoration: underline">DATOS DE FINANCIAMIENTO</a></b></span>
+                        </legend>
                         <br>
                         <br>
                         <table border="0"  align="center">
@@ -880,10 +900,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </fieldset>
 
                         <br>
+                        <fieldset>
+                        <legend>
 
                         <span><a>Paso 1.7: </a><b><a style="text-decoration: underline">CONTACTO EN CASO DE EMERGENCIA</a></b></span>
+                        </legend>
                         <br>
                         <br>
                         <table border="0"  align="center">
@@ -987,10 +1011,10 @@
 
                             </tbody>
                         </table>
-                       
-                        <p  align=center>
-                            <html:submit> GUARDAR  </html:submit>
-                        </p> 
+                       </fieldset>
+                        <p style="text-align: center">
+                        <input type="submit" id="botonLogin" value="Guardar">  <br>  
+                    </p>
                
                 </html:form>
     
